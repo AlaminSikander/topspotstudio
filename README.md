@@ -4,7 +4,7 @@ The marketing website for Top Spot Studio, a founder-led SEO and web growth stud
 
 - **Stack:** Next.js 16 (App Router, static generation), TypeScript, Tailwind CSS v4, MDX (blog), zod (form validation)
 - **Hosting:** Vercel
-- **Forms:** two route handlers (`/api/audit/`, `/api/contact/`) that email submissions through the Resend REST API
+- **Forms:** two route handlers (`/api/audit/`, `/api/contact/`) that email submissions over SMTP (nodemailer)
 
 More documentation:
 
@@ -34,16 +34,17 @@ Leaving the email variables empty in development is fine. The forms then return 
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Yes | Absolute origin, no trailing slash (e.g. `https://www.example.co.nz`). Used for canonicals, sitemap, OG and schema. |
 | `NEXT_PUBLIC_SITE_ENV` | Yes | `production` makes the site indexable. Any other value sends `noindex` (meta and `X-Robots-Tag` header), blocks crawling in `robots.txt` and empties the sitemap. |
-| `RESEND_API_KEY` | For forms | Resend API key (server-only). |
-| `CONTACT_INBOX` | For forms | Inbox that receives submissions; comma-separate multiple addresses. |
-| `FORM_FROM_EMAIL` | For forms | Sender on a Resend-verified domain, e.g. `Top Spot Studio <forms@yourdomain>`. |
+| `SMTP_HOST` | For forms | SMTP server host, e.g. `smtp.gmail.com` (server-only). |
+| `SMTP_PORT` | For forms | SMTP port. Defaults to `587`; use `465` for implicit TLS. |
+| `SMTP_SECURE` | Optional | `true` for implicit TLS. Defaults to `true` on port 465, otherwise STARTTLS is used when offered. |
+| `SMTP_USER` / `SMTP_PASS` | For forms | SMTP credentials (for Gmail, an app password). Omit for unauthenticated relays. |
+| `CONTACT_INBOX` | For forms | Inbox that receives Contact and Audit submissions (currently `alamin.6534@gmail.com`); comma-separate multiple addresses. |
+| `FORM_FROM_EMAIL` | Optional | Sender, e.g. `Top Spot Studio <forms@yourdomain>`. Defaults to `SMTP_USER`; must be an address your SMTP provider allows you to send as. |
 | `NEXT_PUBLIC_GTM_ID` | Optional | Google Tag Manager container. GTM only loads when this is set. |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | Optional | Public email shown on Contact and added as `ContactPoint` schema. |
 | `NEXT_PUBLIC_PRIVACY_APPROVED` | Optional | Set `true` once the Privacy Policy is approved (makes it indexable and adds it to the sitemap). |
 | `NEXT_PUBLIC_BLOG_ENABLED` | Optional | Set `true` once 3+ approved articles exist (adds the blog to the nav, footer and sitemap and makes the hub indexable). |
 | `NEXT_PUBLIC_SHOW_DRAFTS` | Dev only | `true` renders draft articles (for template QA). Never set in production. |
-| `RESEND_API_URL` | QA only | Overrides the Resend endpoint (used with `scripts/mock-resend.mjs`). |
-
 `NEXT_PUBLIC_*` values are inlined at build time, so redeploy after changing them.
 
 ## Build
@@ -89,14 +90,14 @@ The scripts run against a running server (dev or production). Playwright's Chrom
 | `npm run qa:nav -- <baseUrl>` | Skip link, Industries dropdown keyboard support, sticky header, mobile menu, tap targets |
 | `npm run qa:screens -- <baseUrl>` | Full-page screenshots at 375/768/1440 px into `.tmp/shots`, plus console errors and overflow |
 
-To exercise a successful form submission locally without a Resend key:
+To exercise a successful form submission locally without real SMTP credentials:
 
 ```bash
-node scripts/mock-resend.mjs                       # terminal 1
-# .env.local: RESEND_API_KEY=test, CONTACT_INBOX=inbox@example.com,
-#             FORM_FROM_EMAIL=Test <forms@example.com>, RESEND_API_URL=http://localhost:4010/emails
+node scripts/mock-smtp.mjs                         # terminal 1
+# .env.local: SMTP_HOST=localhost, SMTP_PORT=2525, CONTACT_INBOX=inbox@example.com,
+#             FORM_FROM_EMAIL=Test <forms@example.com>
 npm run dev                                        # terminal 2
-npm run qa:forms                                   # terminal 3, then inspect .tmp/mock-resend.log
+npm run qa:forms                                   # terminal 3, then inspect .tmp/mock-smtp.log
 ```
 
 ## Project structure

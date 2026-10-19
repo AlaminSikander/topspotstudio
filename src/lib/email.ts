@@ -1,15 +1,39 @@
 import "server-only";
+import nodemailer, { type Transporter } from "nodemailer";
 
 type Row = [label: string, value: string];
 
 const escapeHtml = (s: string) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
+const fromAddress = () => process.env.FORM_FROM_EMAIL || process.env.SMTP_USER;
+
 export function isEmailConfigured() {
-  return Boolean(process.env.RESEND_API_KEY && process.env.CONTACT_INBOX && process.env.FORM_FROM_EMAIL);
+  return Boolean(process.env.SMTP_HOST && process.env.CONTACT_INBOX && fromAddress());
 }
 
-/** Sends a readable notification to the business inbox via the Resend REST API. */
+let transporter: Transporter | undefined;
+
+function getTransporter() {
+  if (!transporter) {
+    const port = Number(process.env.SMTP_PORT) || 587;
+    // Port 465 uses implicit TLS; other ports upgrade with STARTTLS when the server offers it.
+    const secure = process.env.SMTP_SECURE ? process.env.SMTP_SECURE === "true" : port === 465;
+    transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port,
+      secure,
+      auth: process.env.SMTP_USER ? { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS } : undefined,
+      // Keep a slow or unreachable SMTP server from hanging the form request.
+      connectionTimeout: 10_000,
+      greetingTimeout: 10_000,
+      socketTimeout: 20_000,
+    });
+  }
+  return transporter;
+}
+
+/** Sends a readable notification to the business inbox over SMTP. */
 export async function sendNotification({
   subject,
   heading,
@@ -32,23 +56,18 @@ export async function sendNotification({
     )
     .join("")}</table></div>`;
 
-  const res = await fetch(process.env.RESEND_API_URL || "https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: process.env.FORM_FROM_EMAIL,
+  try {
+    await getTransporter().sendMail({
+      from: fromAddress(),
       to: process.env.CONTACT_INBOX!.split(",").map((s) => s.trim()),
-      reply_to: replyTo,
+      replyTo,
       subject,
       text,
       html,
-    }),
-  });
-  if (!res.ok) {
-    return { ok: false, error: `Resend responded ${res.status}` };
+    });
+  } catch (err) {
+    const e = err as { code?: string; message?: string };
+    return { ok: false, error: [e.code, e.message].filter(Boolean).join(" ") || String(err) };
   }
   return { ok: true };
 }

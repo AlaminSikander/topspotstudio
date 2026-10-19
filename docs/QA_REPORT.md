@@ -121,7 +121,7 @@ These are lab numbers on a local server with simulated slow-4G throttling. Field
 
 ## Known limitations and open items
 
-- **Real email delivery not tested.** It needs `RESEND_API_KEY`, a verified sending domain (`FORM_FROM_EMAIL`) and the official inbox (`CONTACT_INBOX`). Once these are set, send one audit and one contact submission from desktop and mobile on the production domain and confirm they arrive (launch gate E).
+- **Real email delivery not tested.** It needs SMTP credentials (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`), a permitted sender (`FORM_FROM_EMAIL`) and the inbox (`CONTACT_INBOX`). Once these are set, send one audit and one contact submission from desktop and mobile on the production domain and confirm they arrive (launch gate E).
 - **GA4/GTM not connected.** Events are pushed to `dataLayer`; GTM loads only when `NEXT_PUBLIC_GTM_ID` is set. Verify in GTM Preview and GA4 DebugView, and mark `free_audit_form_submit` and `contact_form_submit` as key events.
 - **Rate limiting is per server instance.** It is a best-effort guard; add Vercel Firewall rate limiting or a CAPTCHA only if spam appears.
 - **Cross-browser:** tested in Chromium (Playwright and Chrome). Safari, Firefox and real iOS/Android devices should be spot-checked on the staging URL before launch.

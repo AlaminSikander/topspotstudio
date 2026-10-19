@@ -112,7 +112,7 @@ All 14 routes meet them (see `QA_REPORT.md`).
 | Item | Owner | Action |
 | --- | --- | --- |
 | Production domain + DNS + HTTPS | Asif / Al Amin | Buy the domain, add it in Vercel, set `NEXT_PUBLIC_SITE_URL` |
-| Official inbox + Resend | Asif | Create the inbox, verify the sending domain in Resend, set `RESEND_API_KEY`, `CONTACT_INBOX`, `FORM_FROM_EMAIL`; send live test enquiries |
+| Official inbox + SMTP | Asif | Create the inbox and SMTP account, set `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `CONTACT_INBOX` (currently `alamin.6534@gmail.com`), `FORM_FROM_EMAIL`; send live test enquiries |
 | Public contact email | Asif | Optional: set `NEXT_PUBLIC_CONTACT_EMAIL` (adds a mailto link and ContactPoint schema) |
 | Privacy Policy approval | Asif (+ legal review if needed) | Review `/privacy-policy/`, then set `NEXT_PUBLIC_PRIVACY_APPROVED=true` |
 | GTM / GA4 / GSC | Asif | Provide the GTM ID, configure GA4 key events, verify GSC and submit the sitemap after launch |

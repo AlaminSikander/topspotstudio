@@ -47,7 +47,7 @@ export async function handleFormPost<S extends z.ZodType<{ email: string; starte
   }
 
   if (!isEmailConfigured()) {
-    console.error("[forms] Email delivery is not configured (RESEND_API_KEY, CONTACT_INBOX, FORM_FROM_EMAIL).");
+    console.error("[forms] Email delivery is not configured (SMTP_HOST, CONTACT_INBOX, and FORM_FROM_EMAIL or SMTP_USER).");
     return json(
       { ok: false, message: "Sorry — we couldn’t send your request just now. Please try again later." },
       503,
