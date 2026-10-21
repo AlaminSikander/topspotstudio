@@ -12,7 +12,8 @@ export async function revalidateSite(req: PayloadRequest | undefined, reason: st
   let revalidatePath: (path: string, type?: "page" | "layout") => void;
   try {
     ({ revalidatePath } = await import("next/cache"));
-  } catch {
+  } catch (err) {
+    req.payload.logger.error({ msg: `Revalidation unavailable (${reason}): ${(err as Error).message}` });
     return;
   }
   try {
@@ -31,8 +32,8 @@ export async function revalidateSite(req: PayloadRequest | undefined, reason: st
     revalidatePath("/robots.txt");
     req.payload.logger.info({ msg: `Revalidated site: ${reason}` });
   } catch (err) {
-    // Outside a Next.js request (seed scripts, migrations, CLI) there is no cache to revalidate.
-    req.payload.logger.debug({ msg: `Skipped revalidation (${reason}): ${(err as Error).message}` });
+    // Scripts and migrations pass context.disableRevalidate, so a failure here means published changes may not appear.
+    req.payload.logger.error({ msg: `Revalidation failed (${reason}): ${(err as Error).message}` });
   }
 }
 

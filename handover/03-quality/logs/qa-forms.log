@@ -1,0 +1,26 @@
+
+> top-spot-studio-website@1.0.0 qa:forms
+> node scripts/form-qa.mjs http://localhost:3100
+
+PASS  [1440px] audit hero CTA scrolls to form
+PASS  [1440px] audit empty submit shows inline errors — 5 field errors
+PASS  [1440px] focus moves to first invalid field — focused: name
+PASS  [1440px] invalid fields expose aria-invalid
+PASS  [1440px] audit success state shown
+PASS  [1440px] audit dataLayer events — free_audit_cta_click, free_audit_form_start, free_audit_form_submit
+PASS  [1440px] no PII in dataLayer
+PASS  [1440px] contact empty submit shows inline errors — 4 field errors
+PASS  [1440px] entered data preserved after validation error
+PASS  [1440px] contact success state shown
+PASS  [1440px] contact dataLayer events — contact_form_start, contact_form_submit
+PASS  [375px] audit hero CTA scrolls to form
+PASS  [375px] audit empty submit shows inline errors — 5 field errors
+PASS  [375px] focus moves to first invalid field — focused: name
+PASS  [375px] invalid fields expose aria-invalid
+PASS  [375px] audit success state shown
+PASS  [375px] audit dataLayer events — free_audit_cta_click, free_audit_form_start, free_audit_form_submit
+PASS  [375px] no PII in dataLayer
+PASS  [375px] contact empty submit shows inline errors — 4 field errors
+PASS  [375px] entered data preserved after validation error
+PASS  [375px] contact success state shown
+PASS  [375px] contact dataLayer events — contact_form_start, contact_form_submit

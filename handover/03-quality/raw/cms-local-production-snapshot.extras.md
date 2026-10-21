@@ -1,6 +1,6 @@
 # Site-wide snapshot for http://localhost:3100
 
-Captured: 2026-10-21T16:21:45.611Z
+Captured: 2026-10-21T18:20:52.061Z
 
 ## /robots.txt
 
@@ -26,11 +26,11 @@ Status: 200
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://topspotstudio.com/</loc>
-<lastmod>2026-10-21T16:12:38.858Z</lastmod>
+<lastmod>2026-10-21T18:10:10.218Z</lastmod>
 </url>
 <url>
 <loc>https://topspotstudio.com/markets/new-zealand/seo/</loc>
-<lastmod>2026-10-21T16:12:38.908Z</lastmod>
+<lastmod>2026-10-21T18:10:10.043Z</lastmod>
 </url>
 <url>
 <loc>https://topspotstudio.com/markets/new-zealand/local-seo/</loc>
@@ -70,7 +70,7 @@ Status: 200
 </url>
 <url>
 <loc>https://topspotstudio.com/about/</loc>
-<lastmod>2026-10-21T16:12:39.253Z</lastmod>
+<lastmod>2026-10-21T17:16:31.005Z</lastmod>
 </url>
 <url>
 <loc>https://topspotstudio.com/contact/</loc>
@@ -88,8 +88,8 @@ connection: keep-alive
 content-encoding: gzip
 content-type: text/html; charset=utf-8
 critical-ch: Sec-CH-Prefers-Color-Scheme
-date: Wed, 21 Oct 2026 16:21:45 GMT
-etag: "qb5qhtk018689f"
+date: Wed, 21 Oct 2026 18:20:52 GMT
+etag: "jke7exri3g689b"
 keep-alive: timeout=5
 permissions-policy: camera=(), microphone=(), geolocation=()
 referrer-policy: strict-origin-when-cross-origin
@@ -98,7 +98,7 @@ vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-pre
 x-content-type-options: nosniff
 x-frame-options: SAMEORIGIN
 x-nextjs-cache: HIT
-x-nextjs-prerender: 1, 1
+x-nextjs-prerender: 1
 x-nextjs-stale-time: 300
 ```
 

@@ -17,16 +17,23 @@ export const stampUser: CollectionBeforeChangeHook = ({ data, req, operation, or
  * Editors without publishing permission can only save drafts.
  * Withdrawing a code-backed page (unpublishing) would return 404 for a live URL, so that is admin-only.
  */
-export const enforcePublishing: CollectionBeforeChangeHook = ({ data, req, originalDoc }) => {
+export const enforcePublishing: CollectionBeforeChangeHook = async ({ data, req, originalDoc, operation, collection }) => {
   if (!req.user) return data;
   const publishing = data._status === "published";
-  const unpublishing = data._status === "draft" && originalDoc?._status === "published" && !isDraftSave(req);
+  // originalDoc is the latest draft when one exists, so the live status is read from the published record.
+  let liveStatus = originalDoc?._status;
+  if (operation === "update" && originalDoc?.id && data._status === "draft" && !isDraftSave(req)) {
+    const live = await req.payload.findByID({ collection: collection.slug as "pages", id: originalDoc.id, draft: false, depth: 0, overrideAccess: true, req, disableErrors: true });
+    liveStatus = live?._status;
+  }
+  const unpublishing = data._status === "draft" && liveStatus === "published" && !isDraftSave(req);
   if ((publishing || unpublishing) && !canPublish(req)) {
     throw new APIError("Your account can save drafts but cannot publish or unpublish. Ask an admin to publish this change.", 403);
   }
   if (unpublishing && originalDoc?.routeType === "code" && !isAdmin(req)) {
     throw new APIError("Unpublishing a built-in page makes its live URL return 404. Only an admin can do this.", 403);
   }
+  req.context.workflowAction = publishing ? "publish" : unpublishing ? "unpublish" : data._status === "draft" ? "draft" : undefined;
   return data;
 };
 

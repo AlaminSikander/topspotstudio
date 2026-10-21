@@ -8,6 +8,13 @@ export function changedFields(doc: Record<string, unknown>, prev: Record<string,
   return [...keys].filter((k) => !IGNORED.has(k) && JSON.stringify(doc?.[k] ?? null) !== JSON.stringify(prev?.[k] ?? null)).slice(0, 40);
 }
 
+/**
+ * Same transaction as the operation being audited (avoids row-lock waits), but its own `context`:
+ * Payload merges a call's context into the request, which would otherwise silence later hooks such as revalidation.
+ */
+export const isolatedReq = (req: PayloadRequest, context: Record<string, unknown> = { skipAudit: true, disableRevalidate: true }) =>
+  ({ ...req, context }) as PayloadRequest;
+
 type LogEntry = {
   action: "create" | "update" | "publish" | "unpublish" | "draft" | "delete" | "login" | "logout" | "restore";
   entity: string;
@@ -17,15 +24,14 @@ type LogEntry = {
   summary?: string;
 };
 
-export async function writeAuditLog(req: PayloadRequest, entry: LogEntry) {
+export async function writeAuditLog(req: PayloadRequest, entry: LogEntry, actor?: { id?: number | string; email?: string } | null) {
   if (req.context?.skipAudit) return;
   try {
-    const user = req.user as { id?: number | string; email?: string } | null;
+    const user = (actor ?? req.user) as { id?: number | string; email?: string } | null;
     await req.payload.create({
       collection: "audit-logs",
       overrideAccess: true,
-      req,
-      context: { skipAudit: true, disableRevalidate: true },
+      req: isolatedReq(req),
       data: {
         action: entry.action,
         entity: entry.entity,
@@ -52,12 +58,9 @@ export const auditAfterChange =
   async ({ doc, previousDoc, operation, req }) => {
     if (!req.user) return doc;
     const status = (doc as { _status?: string })._status;
-    const prevStatus = (previousDoc as { _status?: string } | undefined)?._status;
     let action: LogEntry["action"];
     if (!status) action = operation === "create" ? "create" : "update";
-    else if (status === "published") action = "publish";
-    else if (prevStatus === "published" && !isDraftSave(req)) action = "unpublish";
-    else action = "draft";
+    else action = (req.context?.workflowAction as LogEntry["action"] | undefined) ?? (status === "published" ? "publish" : "draft");
     await writeAuditLog(req, {
       action,
       entity,

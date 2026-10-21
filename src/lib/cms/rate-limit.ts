@@ -3,8 +3,10 @@ import "server-only";
 type Bucket = { count: number; resetAt: number };
 const buckets = new Map<string, Bucket>();
 
+/** Prefers headers set by the hosting platform (Vercel overwrites these) over the client-controllable X-Forwarded-For chain. */
 export function clientIp(request: Request) {
-  return (request.headers.get("x-forwarded-for")?.split(",")[0] || request.headers.get("x-real-ip") || "unknown").trim();
+  const h = request.headers;
+  return (h.get("x-vercel-forwarded-for")?.split(",")[0] || h.get("x-real-ip") || h.get("x-forwarded-for")?.split(",")[0] || "unknown").trim();
 }
 
 /**

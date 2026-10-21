@@ -73,6 +73,16 @@ export const Media: CollectionConfig = {
     },
   ],
   hooks: {
+    // With trailingSlash enabled, generated file URLs end in "/" and would cost a 308 hop on every image request.
+    afterRead: [
+      ({ doc }) => {
+        const strip = (u?: string | null) => (typeof u === "string" ? u.replace(/(\.[a-z0-9]{2,5})\/$/i, "$1") : u);
+        doc.url = strip(doc.url);
+        doc.thumbnailURL = strip(doc.thumbnailURL);
+        for (const size of Object.values((doc.sizes ?? {}) as Record<string, { url?: string | null }>)) if (size) size.url = strip(size.url);
+        return doc;
+      },
+    ],
     beforeChange: [stampUser],
     afterChange: [
       auditAfterChange("media"),

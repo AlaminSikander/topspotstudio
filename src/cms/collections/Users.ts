@@ -1,6 +1,6 @@
 import { APIError, type CollectionConfig, type PayloadRequest } from "payload";
 import { adminField, isAdmin, isStaff } from "../access";
-import { auditAfterChange, auditAfterDelete, writeAuditLog } from "../hooks/audit";
+import { auditAfterChange, auditAfterDelete, isolatedReq, writeAuditLog } from "../hooks/audit";
 
 export const MIN_PASSWORD_LENGTH = 12;
 
@@ -116,15 +116,14 @@ export const Users: CollectionConfig = {
     ],
     afterLogin: [
       async ({ req, user }) => {
+        await writeAuditLog(req, { action: "login", entity: "users", docId: String(user.id), docLabel: user.email }, user);
         await req.payload.update({
           collection: "users",
           id: user.id,
           data: { lastLoginAt: new Date().toISOString() },
           overrideAccess: true,
-          req,
-          context: { skipAudit: true, disableRevalidate: true },
+          req: isolatedReq(req),
         });
-        await writeAuditLog({ ...req, user } as typeof req, { action: "login", entity: "users", docId: String(user.id), docLabel: user.email });
       },
     ],
     afterLogout: [
@@ -134,7 +133,7 @@ export const Users: CollectionConfig = {
     ],
     afterChange: [
       async (args) => {
-        if (args.context?.skipAudit) return args.doc;
+        if (args.context?.skipAudit || args.req.context?.skipAudit) return args.doc;
         return auditAfterChange("users")(args);
       },
     ],
