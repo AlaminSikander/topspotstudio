@@ -1,8 +1,9 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { postgresAdapter } from "@payloadcms/db-postgres";
+import { type PostgresAdapter, postgresAdapter } from "@payloadcms/db-postgres";
 import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
 import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
+import { attachDatabasePool } from "@vercel/functions";
 import { buildConfig } from "payload";
 import sharp from "sharp";
 import { AuditLogs } from "./cms/collections/AuditLogs";
@@ -28,6 +29,13 @@ if (!secret && process.env.NODE_ENV === "production" && process.env.NEXT_PHASE !
 const trustedOrigins = [process.env.CMS_SERVER_URL, process.env.NEXT_PUBLIC_SITE_URL, process.env.NODE_ENV !== "production" ? "http://localhost:3000" : undefined]
   .filter((v): v is string => Boolean(v))
   .map((v) => v.replace(/\/$/, ""));
+
+/**
+ * Neon: app traffic uses the pooled (PgBouncer, transaction mode) DATABASE_URL. `payload migrate*` commands
+ * need session semantics, so they use the direct DATABASE_URL_UNPOOLED when it is set.
+ */
+const cliCommand = process.argv.slice(2).find((arg) => !arg.startsWith("-"))?.toLowerCase() ?? "";
+const databaseUrl = (cliCommand.startsWith("migrate") && process.env.DATABASE_URL_UNPOOLED) || process.env.DATABASE_URL || "";
 
 const smtpConfigured = Boolean(process.env.SMTP_HOST);
 
@@ -62,13 +70,17 @@ export default buildConfig({
   editor: basicEditor,
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URL || "",
+      connectionString: databaseUrl,
       max: Number(process.env.DATABASE_POOL_MAX || 5),
     },
     push: false,
     blocksAsJSON: true,
     migrationDir: path.resolve(dirname, "migrations"),
   }),
+  // Lets Vercel Fluid compute close idle pooled connections before an instance is suspended (no-op elsewhere).
+  onInit: (payload) => {
+    attachDatabasePool((payload.db as unknown as PostgresAdapter).pool);
+  },
   upload: { limits: { fileSize: MAX_UPLOAD_BYTES } },
   sharp,
   email: smtpConfigured

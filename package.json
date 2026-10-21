@@ -32,6 +32,8 @@
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
+    "@neon/config": "^1.9.3",
+    "@neon/env": "^1.6.4",
     "@next/mdx": "^16.4.2",
     "@payloadcms/db-postgres": "3.91.0",
     "@payloadcms/email-nodemailer": "3.91.0",
@@ -40,6 +42,7 @@
     "@payloadcms/storage-vercel-blob": "3.91.0",
     "@payloadcms/ui": "3.91.0",
     "@types/mdx": "^2.0.14",
+    "@vercel/functions": "^3.10.2",
     "graphql": "16.11.0",
     "lucide-react": "^1.59.0",
     "next": "16.4.2",
