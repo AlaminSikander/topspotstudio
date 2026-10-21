@@ -2,8 +2,9 @@
   "name": "top-spot-studio-website",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "engines": {
-    "node": ">=20.9.0"
+    "node": ">=20.18.1"
   },
   "scripts": {
     "dev": "next dev",
@@ -16,19 +17,38 @@
     "qa:nav": "node scripts/nav-qa.mjs",
     "qa:screens": "node scripts/screenshots.mjs",
     "assets:brand": "node scripts/generate-brand-assets.mjs",
-    "assets:photos": "node scripts/fetch-photos.mjs"
+    "assets:photos": "node scripts/fetch-photos.mjs",
+    "payload": "payload",
+    "cms:types": "payload generate:types",
+    "cms:importmap": "payload generate:importmap",
+    "cms:migrate": "payload migrate",
+    "cms:migrate:create": "payload migrate:create",
+    "cms:migrate:status": "payload migrate:status",
+    "cms:seed": "payload run src/cms/seed/run.ts",
+    "cms:create-admin": "payload run scripts/cms-create-user.ts",
+    "test": "vitest run",
+    "qa:snapshot": "node scripts/seo-snapshot.mjs"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
     "@next/mdx": "^16.4.2",
+    "@payloadcms/db-postgres": "3.91.0",
+    "@payloadcms/email-nodemailer": "3.91.0",
+    "@payloadcms/next": "3.91.0",
+    "@payloadcms/richtext-lexical": "3.91.0",
+    "@payloadcms/storage-vercel-blob": "3.91.0",
+    "@payloadcms/ui": "3.91.0",
     "@types/mdx": "^2.0.14",
+    "graphql": "16.11.0",
     "lucide-react": "^1.59.0",
     "next": "16.4.2",
     "nodemailer": "^10.1.7",
+    "payload": "3.91.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "server-only": "^0.0.1",
+    "sharp": "0.35.5",
     "zod": "^4.6.7"
   },
   "devDependencies": {
@@ -40,7 +60,6 @@
     "eslint": "^9",
     "eslint-config-next": "16.4.2",
     "playwright": "^1.64.1",
-    "sharp": "^0.35.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

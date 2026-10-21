@@ -1,0 +1,841 @@
+[
+  {
+    "path": "/",
+    "status": [
+      200,
+      200
+    ],
+    "title": true,
+    "metas": {
+      "missing": [],
+      "extra": []
+    },
+    "canonical": {
+      "missing": [],
+      "extra": []
+    },
+    "jsonld": "identical",
+    "headings": {
+      "missing": [],
+      "extra": []
+    },
+    "anchors": {
+      "missing": [],
+      "extra": []
+    },
+    "imgs": {
+      "missing": [],
+      "extra": []
+    },
+    "textIdentical": true,
+    "textDiff": null,
+    "structure": {
+      "similarity": 0.9868593955321945,
+      "removed": [
+        "div.flex.flex-col.gap-6.lg:flex-row.lg:items-end.lg:justify-between",
+        "div.gap-5.grid.lg:grid-cols-2.mt-14",
+        "ul.gap-6.grid.md:grid-cols-3.mt-14",
+        "div.border.border-teal/20.mt-14.overflow-hidden.p-6.relative.reveal.rounded-[24px].sm:p-9.surface-tint",
+        "a.font-semibold.gap-2.group.hover:text-navy.inline-flex.items-center.mt-7.text-teal-ink",
+        "figure.glass-dark.mt-10.p-7.relative.reveal.rounded-[22px]",
+        "a.font-semibold.gap-2.group.hover:text-white.inline-flex.items-center.mt-8.text-teal-300"
+      ],
+      "added": [
+        "div.gap-5.grid.lg:grid-cols-2",
+        "ul.gap-6.grid.md:grid-cols-3",
+        "div.border.border-teal/20.overflow-hidden.p-6.relative.reveal.rounded-[24px].sm:p-9.surface-tint",
+        "div.mt-7",
+        "a.font-semibold.gap-2.group.hover:text-navy.inline-flex.items-center.text-teal-ink",
+        "div.mt-10",
+        "figure.glass-dark.p-7.relative.reveal.rounded-[22px]",
+        "div.mt-8",
+        "a.font-semibold.gap-2.group.hover:text-white.inline-flex.items-center.text-teal-300"
+      ],
+      "before": 758,
+      "after": 764
+    }
+  },
+  {
+    "path": "/markets/new-zealand/seo/",
+    "status": [
+      200,
+      200
+    ],
+    "title": true,
+    "metas": {
+      "missing": [],
+      "extra": []
+    },
+    "canonical": {
+      "missing": [],
+      "extra": []
+    },
+    "jsonld": "identical",
+    "headings": {
+      "missing": [],
+      "extra": []
+    },
+    "anchors": {
+      "missing": [],
+      "extra": []
+    },
+    "imgs": {
+      "missing": [],
+      "extra": []
+    },
+    "textIdentical": true,
+    "textDiff": null,
+    "structure": {
+      "similarity": 0.9973821989528796,
+      "removed": [
+        "div.card.gap-10.grid.mt-16.p-6.reveal.sm:p-10"
+      ],
+      "added": [
+        "div.mt-16",
+        "div.card.gap-10.grid.p-6.reveal.sm:p-10"
+      ],
+      "before": 763,
+      "after": 765
+    }
+  },
+  {
+    "path": "/markets/new-zealand/local-seo/",
+    "status": [
+      200,
+      200
+    ],
+    "title": true,
+    "metas": {
+      "missing": [],
+      "extra": []
+    },
+    "canonical": {
+      "missing": [],
+      "extra": []
+    },
+    "jsonld": "identical",
+    "headings": {
+      "missing": [],
+      "extra": []
+    },
+    "anchors": {
+      "missing": [],
+      "extra": []
+    },
+    "imgs": {
+      "missing": [],
+      "extra": []
+    },
+    "textIdentical": true,
+    "textDiff": null,
+    "structure": {
+      "similarity": 0.995774647887324,
+      "removed": [
+        "aside.bg-gradient-to-br.border.border-teal/25.flex.from-teal-soft.gap-4.mt-8.overflow-hidden.p-6.pl-7.relative.reveal.rounded-[18px].to-white.via-white"
+      ],
+      "added": [
+        "div.mt-8"
+      ],
+      "before": 709,
+      "after": 711
+    }
+  },
+  {
+    "path": "/industries/seo-for-tradies/",
+    "status": [
+      200,
+      200
+    ],
+    "title": true,
+    "metas": {
+      "missing": [],
+      "extra": []
+    },
+    "canonical": {
+      "missing": [],
+      "extra": []
+    },
+    "jsonld": "identical",
+    "headings": {
+      "missing": [],
+      "extra": []
+    },
+    "anchors": {
+      "missing": [],
+      "extra": []
+    },
+    "imgs": {
+      "missing": [],
+      "extra": []
+    },
+    "textIdentical": true,
+    "textDiff": null,
+    "structure": {
+      "similarity": 0.9863663307646711,
+      "removed": [
+        "ul.mt-6.space-y-3.5.text-base",
+        "div.card.mt-12.p-6.reveal.sm:p-8",
+        "p.mt-2.text-base.text-muted",
+        "ul.gap-4.grid.md:grid-cols-3.mt-5.text-base",
+        "p.mt-5.text-base",
+        "ul.gap-4.grid.grid-cols-2.md:grid-cols-3.mt-12",
+        "aside.bg-gradient-to-br.border.border-teal/25.flex.from-teal-soft.gap-4.mt-8.overflow-hidden.p-6.pl-7.relative.reveal.rounded-[18px].to-white.via-white",
+        "a.inline-block.mt-6.text-link"
+      ],
+      "added": [
+        "div.mt-6",
+        "div.card.p-6.reveal.sm:p-8",
+        "div.mt-3.space-y-5.text-base",
+        "p.text-base.text-muted",
+        "ul.gap-4.grid.md:grid-cols-3",
+        "p.text-base",
+        "ul.gap-4.grid.grid-cols-2.md:grid-cols-3",
+        "a.inline-block.text-link"
+      ],
+      "before": 840,
+      "after": 847
+    }
+  },
+  {
+    "path": "/industries/roofing-seo/",
+    "status": [
+      200,
+      200
+    ],
+    "title": true,
+    "metas": {
+      "missing": [],
+      "extra": []
+    },
+    "canonical": {
+      "missing": [],
+      "extra": []
+    },
+    "jsonld": "identical",
+    "headings": {
+      "missing": [],
+      "extra": []
+    },
+    "anchors": {
+      "missing": [],
+      "extra": []
+    },
+    "imgs": {
+      "missing": [],
+      "extra": []
+    },
+    "textIdentical": true,
+    "textDiff": null,
+    "structure": {
+      "similarity": 0.988427501701838,
+      "removed": [
+        "div.card.mt-10.p-6.reveal.sm:p-10",
+        "div.gap-6.grid.lg:grid-cols-2.mt-12",
+        "ul.mt-5.space-y-4.text-base",
+        "p.mt-5.text-muted.text-sm",
+        "a.inline-block.mt-6.text-link"
+      ],
+      "added": [
+        "div.mt-10",
+        "div.card.p-6.reveal.sm:p-10",
+        "div.gap-6.grid.lg:grid-cols-2",
+        "div.mt-3.space-y-5.text-base",
+        "ul.space-y-4",
+        "p.text-muted.text-sm",
+        "div.mt-6",
+        "a.inline-block.text-link"
+      ],
+      "before": 732,
+      "after": 737
+    }
+  },
+  {
+    "path": "/industries/web-design-for-tradies/",
+    "status": [
+      200,
+      200
+    ],
+    "title": true,
+    "metas": {
+      "missing": [],
+      "extra": []
+    },
+    "canonical": {
+      "missing": [],
+      "extra": []
+    },
+    "jsonld": "identical",
+    "headings": {
+      "missing": [],
+      "extra": []
+    },
+    "anchors": {
+      "missing": [],
+      "extra": []
+    },
+    "imgs": {
+      "missing": [],
+      "extra": []
+    },
+    "textIdentical": true,
+    "textDiff": null,
+    "structure": {
+      "similarity": 0.9832635983263598,
+      "removed": [
+        "div.card.mt-10.p-6.reveal.sm:p-10",
+        "div.border.border-teal/20.mt-14.p-6.reveal.rounded-[24px].sm:p-8.surface-tint",
+        "div.flex.flex-col.gap-3.mt-8.sm:flex-row",
+        "ul.mt-6.space-y-3.5.text-base",
+        "p.mt-6.text-base.text-muted",
+        "aside.bg-white.border.border-line.flex.gap-4.mt-6.overflow-hidden.p-6.pl-7.relative.reveal.rounded-[18px]",
+        "a.inline-block.mt-8.text-link"
+      ],
+      "added": [
+        "div.mt-10",
+        "div.card.p-6.reveal.sm:p-10",
+        "div.mt-14",
+        "div.border.border-teal/20.p-6.reveal.rounded-[24px].sm:p-8.surface-tint",
+        "ul.space-y-3.5.text-base",
+        "div.space-y-4",
+        "p.text-base.text-muted",
+        "aside.bg-white.border.border-line.flex.gap-4.overflow-hidden.p-6.pl-7.relative.reveal.rounded-[18px]",
+        "a.inline-block.text-link"
+      ],
+      "before": 712,
+      "after": 722
+    }
+  },
+  {
+    "path": "/case-studies/",
+    "status": [
+      200,
+      200
+    ],
+    "title": true,
+    "metas": {
+      "missing": [],
+      "extra": []
+    },
+    "canonical": {
+      "missing": [],
+      "extra": []
+    },
+    "jsonld": "identical",
+    "headings": {
+      "missing": [],
+      "extra": []
+    },
+    "anchors": {
+      "missing": [],
+      "extra": []
+    },
+    "imgs": {
+      "missing": [],
+      "extra": []
+    },
+    "textIdentical": true,
+    "textDiff": null,
+    "structure": {
+      "similarity": 0.9734717416378316,
+      "removed": [
+        "ul.gap-6.grid.lg:grid-cols-3.mt-12",
+        "div.flex.flex-col.gap-3.mt-12.sm:flex-row",
+        "p.eyebrow.reveal",
+        "h2.mt-4.reveal",
+        "p.mt-5.text-lg",
+        "p.mt-6.text-base.text-muted",
+        "ol.bg-line.border.border-line.gap-px.grid.lg:grid-cols-3.mt-12.overflow-hidden.reveal.rounded-[24px].shadow-[var(--shadow-card)].sm:grid-cols-2",
+        "div.bg-gradient-to-br.border.border-line.from-white.mt-8.mx-auto.p-7.prose-tss.reveal.rounded-[24px].shadow-[var(--shadow-card)].sm:p-10.text-lg.to-offwhite"
+      ],
+      "added": [
+        "div.mt-12",
+        "ul.gap-6.grid.lg:grid-cols-3",
+        "p.eyebrow",
+        "h2.mt-4",
+        "p.text-base.text-muted",
+        "ol.bg-line.border.border-line.gap-px.grid.lg:grid-cols-3.overflow-hidden.reveal.rounded-[24px].shadow-[var(--shadow-card)].sm:grid-cols-2",
+        "div.mt-8",
+        "div.bg-gradient-to-br.border.border-line.from-white.mx-auto.p-7.prose-tss.reveal.rounded-[24px].shadow-[var(--shadow-card)].sm:p-10.text-lg.to-offwhite"
+      ],
+      "before": 430,
+      "after": 437
+    }
+  },
+  {
+    "path": "/case-studies/influencer-marketing-agency-seo-growth/",
+    "status": [
+      200,
+      200
+    ],
+    "title": true,
+    "metas": {
+      "missing": [],
+      "extra": []
+    },
+    "canonical": {
+      "missing": [],
+      "extra": []
+    },
+    "jsonld": "identical",
+    "headings": {
+      "missing": [],
+      "extra": []
+    },
+    "anchors": {
+      "missing": [],
+      "extra": []
+    },
+    "imgs": {
+      "missing": [],
+      "extra": []
+    },
+    "textIdentical": true,
+    "textDiff": null,
+    "structure": {
+      "similarity": 1,
+      "removed": [],
+      "added": [],
+      "before": 509,
+      "after": 509
+    }
+  },
+  {
+    "path": "/case-studies/training-consulting-seo-growth/",
+    "status": [
+      200,
+      200
+    ],
+    "title": true,
+    "metas": {
+      "missing": [],
+      "extra": []
+    },
+    "canonical": {
+      "missing": [],
+      "extra": []
+    },
+    "jsonld": "identical",
+    "headings": {
+      "missing": [],
+      "extra": []
+    },
+    "anchors": {
+      "missing": [],
+      "extra": []
+    },
+    "imgs": {
+      "missing": [],
+      "extra": []
+    },
+    "textIdentical": true,
+    "textDiff": null,
+    "structure": {
+      "similarity": 0.9969543147208122,
+      "removed": [
+        "ul.list-disc.mt-4.pl-5.space-y-3.text-base"
+      ],
+      "added": [
+        "div.mt-3.space-y-5.text-base",
+        "ul.list-disc.pl-5.space-y-3"
+      ],
+      "before": 492,
+      "after": 493
+    }
+  },
+  {
+    "path": "/case-studies/ai-image-editing-seo-growth/",
+    "status": [
+      200,
+      200
+    ],
+    "title": true,
+    "metas": {
+      "missing": [],
+      "extra": []
+    },
+    "canonical": {
+      "missing": [],
+      "extra": []
+    },
+    "jsonld": "identical",
+    "headings": {
+      "missing": [],
+      "extra": []
+    },
+    "anchors": {
+      "missing": [],
+      "extra": []
+    },
+    "imgs": {
+      "missing": [],
+      "extra": []
+    },
+    "textIdentical": true,
+    "textDiff": null,
+    "structure": {
+      "similarity": 0.9936305732484076,
+      "removed": [
+        "p.mt-3.text-base"
+      ],
+      "added": [
+        "div.mt-3.space-y-5.text-base"
+      ],
+      "before": 470,
+      "after": 472
+    }
+  },
+  {
+    "path": "/free-seo-audit/",
+    "status": [
+      200,
+      200
+    ],
+    "title": true,
+    "metas": {
+      "missing": [],
+      "extra": []
+    },
+    "canonical": {
+      "missing": [],
+      "extra": []
+    },
+    "jsonld": "identical",
+    "headings": {
+      "missing": [],
+      "extra": []
+    },
+    "anchors": {
+      "missing": [],
+      "extra": []
+    },
+    "imgs": {
+      "missing": [],
+      "extra": []
+    },
+    "textIdentical": true,
+    "textDiff": null,
+    "structure": {
+      "similarity": 0.98989898989899,
+      "removed": [
+        "aside.bg-white.border.border-line.flex.gap-4.mt-12.overflow-hidden.p-6.pl-7.relative.reveal.rounded-[18px]",
+        "ul.mt-8.space-y-3.5.text-base.text-white/85"
+      ],
+      "added": [
+        "aside.bg-white.border.border-line.flex.gap-4.overflow-hidden.p-6.pl-7.relative.reveal.rounded-[18px]",
+        "div.mt-8",
+        "ul.space-y-3.5.text-base.text-white/85"
+      ],
+      "before": 590,
+      "after": 598
+    }
+  },
+  {
+    "path": "/about/",
+    "status": [
+      200,
+      200
+    ],
+    "title": true,
+    "metas": {
+      "missing": [],
+      "extra": []
+    },
+    "canonical": {
+      "missing": [],
+      "extra": []
+    },
+    "jsonld": "identical",
+    "headings": {
+      "missing": [],
+      "extra": []
+    },
+    "anchors": {
+      "missing": [],
+      "extra": []
+    },
+    "imgs": {
+      "missing": [],
+      "extra": []
+    },
+    "textIdentical": true,
+    "textDiff": null,
+    "structure": {
+      "similarity": 0.9819168173598554,
+      "removed": [
+        "div.mt-6.space-y-4.text-lg.text-white/80",
+        "div.gap-6.grid.lg:grid-cols-2.mt-12",
+        "aside.bg-gradient-to-br.border.border-teal/25.flex.from-teal-soft.gap-4.mt-8.overflow-hidden.p-6.pl-7.relative.reveal.rounded-[18px].to-white.via-white",
+        "div.gap-10.grid.lg:gap-16.lg:grid-cols-2",
+        "a.inline-block.mt-6.text-link",
+        "aside.bg-gradient-to-br.border.border-teal/25.flex.from-teal-soft.gap-4.overflow-hidden.p-6.pl-7.relative.reveal.rounded-[18px].self-center.to-white.via-white"
+      ],
+      "added": [
+        "div.mt-6",
+        "div.space-y-4.text-lg.text-white/80",
+        "div.gap-6.grid.lg:grid-cols-2",
+        "div.mt-8",
+        "aside.bg-gradient-to-br.border.border-teal/25.flex.from-teal-soft.gap-4.overflow-hidden.p-6.pl-7.relative.reveal.rounded-[18px].to-white.via-white",
+        "div.gap-10.grid.lg:gap-16.lg:grid-cols-2.lg:items-center",
+        "a.inline-block.text-link"
+      ],
+      "before": 550,
+      "after": 556
+    }
+  },
+  {
+    "path": "/contact/",
+    "status": [
+      200,
+      200
+    ],
+    "title": true,
+    "metas": {
+      "missing": [],
+      "extra": []
+    },
+    "canonical": {
+      "missing": [],
+      "extra": []
+    },
+    "jsonld": "identical",
+    "headings": {
+      "missing": [],
+      "extra": []
+    },
+    "anchors": {
+      "missing": [],
+      "extra": []
+    },
+    "imgs": {
+      "missing": [],
+      "extra": []
+    },
+    "textIdentical": true,
+    "textDiff": null,
+    "structure": {
+      "similarity": 0.9696356275303644,
+      "removed": [
+        "p.font-semibold.mt-10.text-navy",
+        "div.gap-10.grid.lg:gap-16.lg:grid-cols-2",
+        "a.inline-block.mt-6.text-link",
+        "ul.gap-5.grid.lg:grid-cols-3.md:grid-cols-2.mt-12",
+        "ul.mt-6.space-y-3.5.text-base",
+        "p.mt-6.text-base.text-muted",
+        "div.overflow-hidden.p-8.relative.reveal.rounded-[28px].self-center.shadow-[0_40px_80px_-40px_rgb(10_26_46/0.75)].sm:p-10.surface-deep.text-white/80",
+        "p.mt-4.text-lg"
+      ],
+      "added": [
+        "div.mt-10",
+        "div.gap-10.grid.lg:gap-16.lg:grid-cols-2.lg:items-center",
+        "div.mt-6",
+        "a.inline-block.text-link",
+        "ul.gap-5.grid.lg:grid-cols-3.md:grid-cols-2",
+        "ul.space-y-3.5.text-base",
+        "p.text-base.text-muted",
+        "div.overflow-hidden.p-8.relative.reveal.rounded-[28px].shadow-[0_40px_80px_-40px_rgb(10_26_46/0.75)].sm:p-10.surface-deep.text-white/80",
+        "div.mt-4.space-y-4.text-lg"
+      ],
+      "before": 489,
+      "after": 499
+    }
+  },
+  {
+    "path": "/blog/",
+    "status": [
+      200,
+      200
+    ],
+    "title": true,
+    "metas": {
+      "missing": [],
+      "extra": []
+    },
+    "canonical": {
+      "missing": [],
+      "extra": []
+    },
+    "jsonld": "identical",
+    "headings": {
+      "missing": [],
+      "extra": []
+    },
+    "anchors": {
+      "missing": [],
+      "extra": []
+    },
+    "imgs": {
+      "missing": [],
+      "extra": []
+    },
+    "textIdentical": true,
+    "textDiff": null,
+    "structure": {
+      "similarity": 0.9905956112852664,
+      "removed": [
+        "ul.gap-5.grid.lg:grid-cols-3.mt-12",
+        "div.border.border-teal/20.gap-8.grid.lg:grid-cols-2.mt-10.p-6.reveal.rounded-[24px].sm:p-10.surface-tint"
+      ],
+      "added": [
+        "ul.gap-5.grid.lg:grid-cols-3",
+        "div.mt-10",
+        "div.border.border-teal/20.gap-8.grid.lg:grid-cols-2.p-6.reveal.rounded-[24px].sm:p-10.surface-tint"
+      ],
+      "before": 318,
+      "after": 320
+    }
+  },
+  {
+    "path": "/privacy-policy/",
+    "status": [
+      200,
+      200
+    ],
+    "title": true,
+    "metas": {
+      "missing": [],
+      "extra": []
+    },
+    "canonical": {
+      "missing": [],
+      "extra": []
+    },
+    "jsonld": "identical",
+    "headings": {
+      "missing": [],
+      "extra": []
+    },
+    "anchors": {
+      "missing": [],
+      "extra": []
+    },
+    "imgs": {
+      "missing": [],
+      "extra": []
+    },
+    "textIdentical": true,
+    "textDiff": null,
+    "structure": {
+      "similarity": 0.9811320754716981,
+      "removed": [
+        "strong"
+      ],
+      "added": [
+        "strong.text-navy"
+      ],
+      "before": 265,
+      "after": 265
+    }
+  },
+  {
+    "path": "/this-page-does-not-exist-tss/",
+    "status": [
+      404,
+      404
+    ],
+    "title": true,
+    "metas": {
+      "missing": [
+        "next-size-adjust="
+      ],
+      "extra": []
+    },
+    "canonical": {
+      "missing": [],
+      "extra": []
+    },
+    "jsonld": {
+      "before": [
+        "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@id\":\"https://topspotstudio.com/#organization\",\"@type\":\"Organization\",\"address\":{\"@type\":\"PostalAddress\",\"addressCountry\":\"BD\"},\"areaServed\":[{\"@type\":\"Country\",\"name\":\"New Zealand\"}],\"description\":\"Founder-led SEO and web growth studio based in Bangladesh, working remotely with service businesses in New Zealand and other international markets.\",\"founder\":[{\"@type\":\"Person\",\"jobTitle\":\"Co-Founder & SEO Growth Lead\",\"name\":\"Asif Iqbal Khan\"},{\"@type\":\"Person\",\"jobTitle\":\"Co-Founder & Web Development & QA Lead\",\"name\":\"Al Amin Sikander\"}],\"logo\":\"https://topspotstudio.com/brand/top-spot-studio-logo.png\",\"name\":\"Top Spot Studio\",\"slogan\":\"SEO & Web Growth for Service Businesses\",\"url\":\"https://topspotstudio.com/\"},{\"@id\":\"https://topspotstudio.com/#website\",\"@type\":\"WebSite\",\"inLanguage\":\"en-NZ\",\"name\":\"Top Spot Studio\",\"publisher\":{\"@id\":\"https://topspotstudio.com/#organization\"},\"url\":\"https://topspotstudio.com/\"}]}"
+      ],
+      "after": []
+    },
+    "headings": {
+      "missing": [
+        "h1: This page isn't here",
+        "h2: Services",
+        "h2: Industries",
+        "h2: Company",
+        "h2: Get Started"
+      ],
+      "extra": []
+    },
+    "anchors": {
+      "missing": [
+        "#main | Skip to main content",
+        "/ | TOP SPOT STUDIO Top Spot Studio",
+        "/markets/new-zealand/seo/ | SEO Services NZ Strategy, technical & on-page SEO",
+        "/markets/new-zealand/local-seo/ | Local SEO NZ Google Business Profile & local search",
+        "/industries/seo-for-tradies/ | SEO for Tradies Local search for trade businesses",
+        "/industries/roofing-seo/ | Roofing SEO Our initial specialist niche",
+        "/industries/web-design-for-tradies/ | Web Design for Tradies Websites built around enquiries",
+        "/case-studies/ | Case Studies",
+        "/about/ | About",
+        "/contact/ | Contact",
+        "/free-seo-audit/ | Free SEO Audit",
+        "/markets/new-zealand/seo/ | SEO Services NZ Strategy, technical & on-page SEO",
+        "/markets/new-zealand/local-seo/ | Local SEO NZ Google Business Profile & local search",
+        "/industries/seo-for-tradies/ | SEO for Tradies Local search for trade businesses",
+        "/industries/roofing-seo/ | Roofing SEO Our initial specialist niche",
+        "/industries/web-design-for-tradies/ | Web Design for Tradies Websites built around enquiries",
+        "/case-studies/ | Case Studies",
+        "/about/ | About",
+        "/contact/ | Contact",
+        "/free-seo-audit/ | Free SEO Audit",
+        "/markets/new-zealand/seo/ | SEO Services NZ",
+        "/markets/new-zealand/local-seo/ | Local SEO NZ",
+        "/industries/seo-for-tradies/ | SEO for Tradies",
+        "/case-studies/ | Case Studies",
+        "/free-seo-audit/ | Get a Free SEO Audit",
+        "/ | Back to the homepage",
+        "/free-seo-audit/ | Get a Free SEO Audit",
+        "/contact/ | Contact Us",
+        "/ | TOP SPOT STUDIO Top Spot Studio",
+        "/markets/new-zealand/seo/ | SEO Services NZ",
+        "/markets/new-zealand/local-seo/ | Local SEO NZ",
+        "/industries/web-design-for-tradies/ | Web Design for Tradies",
+        "/industries/seo-for-tradies/ | SEO for Tradies",
+        "/industries/roofing-seo/ | Roofing SEO",
+        "/about/ | About",
+        "/case-studies/ | Case Studies",
+        "/contact/ | Contact",
+        "/free-seo-audit/ | Free SEO Audit",
+        "/privacy-policy/ | Privacy Policy",
+        "/contact/ | Contact"
+      ],
+      "extra": []
+    },
+    "imgs": {
+      "missing": [],
+      "extra": []
+    },
+    "textIdentical": false,
+    "textDiff": {
+      "at": 0,
+      "before": "Skip to main content TOP SPOT STUDIO Top Spot Studio SEO SEO Services NZ Strategy, technical & on-page SEO Local SEO Local SEO NZ Google Business Profile & loca",
+      "after": ""
+    },
+    "structure": {
+      "similarity": 0.00881057268722467,
+      "removed": [
+        "a.focus:bg-navy.focus:fixed.focus:left-4.focus:not-sr-only.focus:px-4.focus:py-3.focus:rounded-[10px].focus:text-white.focus:top-4.focus:z-[100].sr-only",
+        "header.h-[var(--header-h)].pt-3.px-3.sm:px-5.sticky.top-0.z-50",
+        "div.backdrop-blur-lg.bg-white/65.border.border-white/60.duration-500.ease-[var(--ease-out-expo)].flex.gap-6.h-[64px].items-center.justify-between.max-w-[1240px].mx-auto.pl-5.pr-2.5.relative.rounded-[20px].shadow-[0_8px_30px_-20px_rgb(15_39_66/0.35)].sm:pl-6.transition-[background-color,box-shadow,border-color,max-width]",
+        "a.rounded-md.shrink-0",
+        "span.gap-3.inline-flex.items-center.origin-left.scale-90.sm:scale-100",
+        "span.bg-teal.h-9.w-px",
+        "text",
+        "span.sr-only",
+        "nav.hidden.lg:block",
+        "ul.flex.items-center",
+        "li",
+        "div.relative",
+        "button.font-semibold.gap-1.hover:text-teal-ink.inline-flex.items-center.nav-link.px-3.5.py-2.rounded-full.text-[0.94rem].text-navy",
+        "div.-translate-x-1/2.absolute.duration-300.ease-[var(--ease-out-expo)].invisible.left-1/2.opacity-0.pt-3.top-full.transition-[opacity,translate,visibility].translate-y-2.w-[20rem].z-50",
+        "ul.glass.p-2.rounded-[20px]"
+      ],
+      "added": [],
+      "before": 226,
+      "after": 1
+    }
+  }
+]

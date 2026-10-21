@@ -24,7 +24,8 @@ export function ResponsiveImage({
   rounded = "rounded-[20px]",
   caption,
 }: {
-  src: StaticImageData;
+  /** Static imports get a blur placeholder; media-library URLs load without one. */
+  src: StaticImageData | string;
   alt: string;
   ratio?: Ratio;
   priority?: boolean;
@@ -63,7 +64,7 @@ export function ResponsiveImage({
           fill
           priority={priority}
           sizes={sizes}
-          placeholder="blur"
+          placeholder={typeof src === "string" ? "empty" : "blur"}
           className="img-zoom object-cover"
           style={{ objectPosition: position }}
         />

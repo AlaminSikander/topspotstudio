@@ -7,22 +7,35 @@ const WEBSITE_ID = `${SITE_URL}/#website`;
 /** Crumbs without a path render as plain text (no invented parent URLs) and are left out of schema. */
 export type Crumb = { name: string; path?: string };
 
-export function organizationSchema() {
+export type OrganizationInput = {
+  name?: string;
+  slogan?: string;
+  description?: string;
+  logoPath?: string;
+  addressCountry?: string;
+  areaServed?: string[];
+  founders?: { name: string; role: string }[];
+  contactEmail?: string;
+  sameAs?: string[];
+};
+
+export function organizationSchema(org: OrganizationInput = {}) {
+  const email = org.contactEmail || CONTACT_EMAIL;
   return {
     "@type": "Organization",
     "@id": ORG_ID,
-    name: SITE_NAME,
+    name: org.name || SITE_NAME,
     url: absoluteUrl("/"),
-    logo: absoluteUrl("/brand/top-spot-studio-logo.png"),
-    slogan: SITE_TAGLINE,
+    logo: absoluteUrl(org.logoPath || "/brand/top-spot-studio-logo.png"),
+    slogan: org.slogan || SITE_TAGLINE,
     description:
+      org.description ||
       "Founder-led SEO and web growth studio based in Bangladesh, working remotely with service businesses in New Zealand and other international markets.",
-    address: { "@type": "PostalAddress", addressCountry: "BD" },
-    areaServed: [{ "@type": "Country", name: "New Zealand" }],
-    founder: founders.map((f) => ({ "@type": "Person", name: f.name, jobTitle: f.role })),
-    ...(CONTACT_EMAIL
-      ? { contactPoint: [{ "@type": "ContactPoint", contactType: "customer enquiries", email: CONTACT_EMAIL }] }
-      : {}),
+    address: { "@type": "PostalAddress", addressCountry: org.addressCountry || "BD" },
+    areaServed: (org.areaServed?.length ? org.areaServed : ["New Zealand"]).map((name) => ({ "@type": "Country", name })),
+    founder: (org.founders?.length ? org.founders : founders).map((f) => ({ "@type": "Person", name: f.name, jobTitle: f.role })),
+    ...(email ? { contactPoint: [{ "@type": "ContactPoint", contactType: "customer enquiries", email }] } : {}),
+    ...(org.sameAs?.length ? { sameAs: org.sameAs } : {}),
   };
 }
 

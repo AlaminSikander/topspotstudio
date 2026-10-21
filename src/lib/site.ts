@@ -8,9 +8,6 @@ export const PRIVACY_APPROVED = process.env.NEXT_PUBLIC_PRIVACY_APPROVED === "tr
 export const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "";
 export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "";
 
-export const LOCATION_STATEMENT =
-  "Based in Bangladesh, working remotely with businesses in New Zealand and other international markets.";
-
 export const routes = {
   home: "/",
   nzSeo: "/markets/new-zealand/seo/",
@@ -29,56 +26,7 @@ export const routes = {
   privacy: "/privacy-policy/",
 } as const;
 
-export type NavLink = { label: string; href: string };
-export type NavItem = NavLink | { label: string; children: NavLink[] };
-
-export const industriesNav: NavLink[] = [
-  { label: "SEO for Tradies", href: routes.tradies },
-  { label: "Roofing SEO", href: routes.roofing },
-  { label: "Web Design for Tradies", href: routes.webDesign },
-];
-
-export const mainNav: NavItem[] = [
-  { label: "SEO", children: [{ label: "SEO Services NZ", href: routes.nzSeo }] },
-  { label: "Local SEO", children: [{ label: "Local SEO NZ", href: routes.nzLocalSeo }] },
-  { label: "Industries", children: industriesNav },
-  { label: "Case Studies", href: routes.caseStudies },
-  { label: "About", href: routes.about },
-  ...(BLOG_ENABLED ? [{ label: "Blog", href: routes.blog }] : []),
-  { label: "Contact", href: routes.contact },
-];
-
-export const footerColumns: { title: string; links: NavLink[] }[] = [
-  {
-    title: "Services",
-    links: [
-      { label: "SEO Services NZ", href: routes.nzSeo },
-      { label: "Local SEO NZ", href: routes.nzLocalSeo },
-      { label: "Web Design for Tradies", href: routes.webDesign },
-    ],
-  },
-  {
-    title: "Industries",
-    links: [
-      { label: "SEO for Tradies", href: routes.tradies },
-      { label: "Roofing SEO", href: routes.roofing },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About", href: routes.about },
-      { label: "Case Studies", href: routes.caseStudies },
-      ...(BLOG_ENABLED ? [{ label: "Blog", href: routes.blog }] : []),
-      { label: "Contact", href: routes.contact },
-    ],
-  },
-  {
-    title: "Get Started",
-    links: [{ label: "Free SEO Audit", href: routes.audit }],
-  },
-];
-
+/** Fallback for Organization schema when Site settings has no founders. */
 export const founders = [
   {
     name: "Asif Iqbal Khan",

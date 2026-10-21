@@ -1,37 +1,43 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
-import { routes } from "@/lib/site";
+import { getPayloadClient } from "@/lib/cms/payload";
 
 export const dynamic = "force-static";
-export const dynamicParams = false;
+// Pages created after the last build get their image on first request.
+export const dynamicParams = true;
 
-const pages: Record<string, { eyebrow: string; title: string }> = {
-  home: { eyebrow: "SEO + Web Growth", title: "SEO & Web Growth for Service Businesses" },
-  [routes.nzSeo]: { eyebrow: "SEO Services · New Zealand", title: "SEO Services for New Zealand Service Businesses" },
-  [routes.nzLocalSeo]: { eyebrow: "Local SEO · New Zealand", title: "Local SEO Services for New Zealand Businesses" },
-  [routes.tradies]: { eyebrow: "Industry · Tradies", title: "SEO for Tradies That Turns Local Searches Into Enquiries" },
-  [routes.roofing]: { eyebrow: "Industry · Roofing", title: "Roofing SEO That Turns Local Searches Into Enquiries" },
-  [routes.webDesign]: { eyebrow: "Industry · Web Design", title: "Web Design for Tradies" },
-  [routes.caseStudies]: { eyebrow: "Selected SEO Work", title: "SEO Case Studies & Results" },
-  [routes.caseInfluencer]: { eyebrow: "Case Study · Influencer Marketing", title: "99 tracked form leads for a Malaysian influencer marketing agency" },
-  [routes.caseConsulting]: { eyebrow: "Case Study · Training & Consulting", title: "+182.4% Google Search clicks for a training & consulting business" },
-  [routes.caseImageEditing]: { eyebrow: "Case Study · AI Image Editing", title: "4,182 → 5,400 monthly organic visitors in four months" },
-  [routes.audit]: { eyebrow: "Free SEO & Website Audit", title: "5–7 findings. 3 priorities. No access needed." },
-  [routes.about]: { eyebrow: "About", title: "A founder-led SEO and web growth studio" },
-  [routes.contact]: { eyebrow: "Contact", title: "Let's Talk About Your Business" },
-  [routes.blog]: { eyebrow: "Blog", title: "Practical SEO & Web Growth Advice for Service Businesses" },
-  [routes.privacy]: { eyebrow: "Privacy", title: "Privacy Policy" },
-};
+type OgCopy = { eyebrow: string; title: string };
+const FALLBACK: OgCopy = { eyebrow: "SEO + Web Growth", title: "SEO & Web Growth for Service Businesses" };
 
-const keyToSlug = (key: string) => (key === "home" ? ["home.png"] : `${key.replace(/^\/|\/$/g, "")}.png`.split("/"));
-const slugToKey = (slug: string[]) => {
+const pathToSlug = (path: string) => (path === "/" ? ["home.png"] : `${path.replace(/^\/|\/$/g, "")}.png`.split("/"));
+const slugToPath = (slug: string[]) => {
   const joined = slug.join("/").replace(/\.png$/, "");
-  return joined === "home" ? "home" : `/${joined}/`;
+  return joined === "home" ? "/" : `/${joined}/`;
 };
 
-export function generateStaticParams() {
-  return Object.keys(pages).map((key) => ({ slug: keyToSlug(key) }));
+async function publishedPages() {
+  const payload = await getPayloadClient();
+  const res = await payload.find({
+    collection: "pages",
+    where: { _status: { equals: "published" } },
+    depth: 0,
+    limit: 1000,
+    pagination: false,
+    overrideAccess: false,
+    select: { path: true, title: true, seo: true },
+  });
+  return res.docs;
+}
+
+export async function generateStaticParams() {
+  return (await publishedPages()).map((p) => ({ slug: pathToSlug(p.path) }));
+}
+
+async function copyFor(path: string): Promise<OgCopy> {
+  const page = (await publishedPages()).find((p) => p.path === path);
+  if (!page) return FALLBACK;
+  return { eyebrow: page.seo?.ogEyebrow || FALLBACK.eyebrow, title: page.seo?.ogHeadline || page.title };
 }
 
 const MARK_T = "0,0 83,0 98.7,27 72,27 161.5,182 147,207 42,27 15.7,27";
@@ -39,7 +45,7 @@ const MARK_S = "105,0 269,0 253.3,27 151.3,27 161.8,45 242.8,45 187.2,140.4 159.
 
 export async function GET(_req: Request, { params }: RouteContext<"/og/[...slug]">) {
   const { slug } = await params;
-  const page = pages[slugToKey(slug)] ?? pages.home;
+  const page = await copyFor(slugToPath(slug));
   const fontDir = join(process.cwd(), "src/assets/fonts");
   const [regular, semibold] = await Promise.all([
     readFile(join(fontDir, "Poppins-400.ttf")),
