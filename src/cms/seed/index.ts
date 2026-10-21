@@ -6,6 +6,7 @@ import { about, audit, blogHub, contact, privacy } from "./content/company";
 import { authors, categories, footer, navigation, siteSettings, templatePost } from "./content/globals";
 import { home } from "./content/home";
 import { roofing, tradies, webDesign } from "./content/industries";
+import { demoPosts } from "./content/posts";
 import { nzLocalSeo, nzSeo } from "./content/services";
 
 export const SEED_PAGES: SeedPage[] = [
@@ -66,7 +67,7 @@ async function upsertBy(payload: Payload, collection: "categories" | "authors", 
   return map;
 }
 
-export async function seed(payload: Payload, { overwrite = false }: { overwrite?: boolean } = {}) {
+export async function seed(payload: Payload, { overwrite = false, withDemoPosts = false }: { overwrite?: boolean; withDemoPosts?: boolean } = {}) {
   const log = (msg: string) => payload.logger.info({ msg: `[seed] ${msg}` });
 
   const categoryIds = await upsertBy(payload, "categories", "slug", categories);
@@ -121,6 +122,21 @@ export async function seed(payload: Payload, { overwrite = false }: { overwrite?
       context,
     });
     log(`created draft post ${templatePost.slug} (not published)`);
+  }
+
+  for (const { category, author, ...rest } of withDemoPosts ? demoPosts : []) {
+    const found = await payload.find({ collection: "posts", where: { slug: { equals: rest.slug } }, limit: 1, overrideAccess: true, draft: true });
+    if (found.docs.length) {
+      log(`skip demo post ${rest.slug} (exists)`);
+      continue;
+    }
+    await payload.create({
+      collection: "posts",
+      data: resolveRefs({ ...rest, category: categoryIds.get(category)!, author: authorByKey.get(author)!, _status: "published" }, refs) as never,
+      overrideAccess: true,
+      context,
+    });
+    log(`created demo post ${rest.slug}`);
   }
   log("done");
 }

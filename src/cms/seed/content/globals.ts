@@ -24,7 +24,7 @@ export const navigation = {
     },
     { label: "Case Studies", type: "link", visibility: "always", link: link("/case-studies/") },
     { label: "About", type: "link", visibility: "always", link: link("/about/") },
-    { label: "Blog", type: "link", visibility: "blogEnabled", link: link("/blog/") },
+    { label: "Blog", type: "link", visibility: "always", link: link("/blog/") },
     { label: "Contact", type: "link", visibility: "always", link: link("/contact/") },
   ],
   cta: cta("Free SEO Audit", "/free-seo-audit/"),
@@ -40,7 +40,7 @@ export const footer = {
   columns: [
     { title: "Services", links: [navLink("SEO Services NZ", "/markets/new-zealand/seo/"), navLink("Local SEO NZ", "/markets/new-zealand/local-seo/"), navLink("Web Design for Tradies", "/industries/web-design-for-tradies/")] },
     { title: "Industries", links: [navLink("SEO for Tradies", "/industries/seo-for-tradies/"), navLink("Roofing SEO", "/industries/roofing-seo/")] },
-    { title: "Company", links: [navLink("About", "/about/"), navLink("Case Studies", "/case-studies/"), navLink("Blog", "/blog/", "blogEnabled"), navLink("Contact", "/contact/")] },
+    { title: "Company", links: [navLink("About", "/about/"), navLink("Case Studies", "/case-studies/"), navLink("Blog", "/blog/"), navLink("Contact", "/contact/")] },
     { title: "Get Started", links: [navLink("Free SEO Audit", "/free-seo-audit/")] },
   ],
   copyright: "Founder-led SEO and web growth studio.",
