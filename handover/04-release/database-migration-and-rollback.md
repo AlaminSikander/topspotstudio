@@ -40,7 +40,7 @@
 If an admin is locked out and email is not configured:
 
 ```bash
-CMS_USER_EMAIL=<email> CMS_USER_PASSWORD=<new password> npm run cms:create-admin -- --reset-password
+CMS_RESET_PASSWORD=true CMS_USER_EMAIL=<email> CMS_USER_PASSWORD=<new password> npm run cms:create-admin
 ```
 
 This resets the password, unlocks the account and re-activates it. Run it only from a trusted machine with the target database’s `DATABASE_URL`.

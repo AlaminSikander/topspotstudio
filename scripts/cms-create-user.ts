@@ -2,7 +2,7 @@
  * Creates (or resets the password of) a CMS user without exposing credentials in code, git or logs.
  *
  *   CMS_USER_EMAIL=… CMS_USER_NAME=… CMS_USER_ROLE=admin|editor CMS_USER_PASSWORD=… npm run cms:create-admin
- *   add "-- --reset-password" to set a new password for an existing account (also unlocks it)
+ *   add CMS_RESET_PASSWORD=true to set a new password for an existing account (also unlocks it)
  *
  * Use a password manager to generate the password and pass it only through the environment of this one command.
  */
@@ -14,7 +14,7 @@ const email = process.env.CMS_USER_EMAIL?.trim().toLowerCase();
 const name = process.env.CMS_USER_NAME?.trim();
 const role = process.env.CMS_USER_ROLE === "editor" ? "editor" : "admin";
 const password = process.env.CMS_USER_PASSWORD;
-const reset = process.argv.includes("--reset-password");
+const reset = process.env.CMS_RESET_PASSWORD === "true" || process.argv.includes("--reset-password");
 
 if (!email || !password || (!name && !reset)) {
   console.error("Set CMS_USER_EMAIL, CMS_USER_NAME and CMS_USER_PASSWORD (and optionally CMS_USER_ROLE=editor).");
@@ -30,7 +30,7 @@ const existing = await payload.find({ collection: "users", where: { email: { equ
 
 if (existing.docs[0]) {
   if (!reset) {
-    console.error(`A user with that email already exists. Re-run with "-- --reset-password" to set a new password.`);
+    console.error(`A user with that email already exists. Re-run with CMS_RESET_PASSWORD=true to set a new password.`);
     process.exit(1);
   }
   await payload.update({
