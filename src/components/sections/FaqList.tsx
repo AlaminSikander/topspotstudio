@@ -4,7 +4,19 @@ import { ArrowRight, MessagesSquare, Plus } from "lucide-react";
 import { SectionHeader } from "./Section";
 import { routes } from "@/lib/site";
 
-export function FaqSection({ items, title = "Frequently Asked Questions" }: { items: FaqItem[]; title?: string }) {
+export function FaqSection({
+  items,
+  title = "Frequently Asked Questions",
+  asideTitle = "Have a question that isn’t covered here?",
+  asideLinkLabel = "Ask the founders directly",
+  asideHref = routes.contact,
+}: {
+  items: FaqItem[];
+  title?: string;
+  asideTitle?: string;
+  asideLinkLabel?: string;
+  asideHref?: string;
+}) {
   return (
     <section id="faq" aria-labelledby="faq-title" className="section relative overflow-clip bg-white">
       <div
@@ -18,9 +30,9 @@ export function FaqSection({ items, title = "Frequently Asked Questions" }: { it
             <span className="icon-tile size-10 rounded-[12px]">
               <MessagesSquare aria-hidden className="size-[18px]" strokeWidth={1.75} />
             </span>
-            <p className="mt-4 font-semibold text-navy">Have a question that isn’t covered here?</p>
-            <Link href={routes.contact} className="group mt-3 inline-flex items-center gap-1.5 text-base font-semibold text-teal-ink hover:text-navy">
-              Ask the founders directly
+            <p className="mt-4 font-semibold text-navy">{asideTitle}</p>
+            <Link href={asideHref} className="group mt-3 inline-flex items-center gap-1.5 text-base font-semibold text-teal-ink hover:text-navy">
+              {asideLinkLabel}
               <ArrowRight aria-hidden className="btn-arrow size-4" />
             </Link>
           </div>

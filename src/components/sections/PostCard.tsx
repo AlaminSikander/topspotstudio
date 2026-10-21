@@ -1,11 +1,20 @@
 import Link from "next/link";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { ArrowRight } from "lucide-react";
-import { authors, type BlogPost } from "@/content/blog";
 import { formatDate } from "@/lib/format";
 
-export function PostCard({ post }: { post: BlogPost }) {
-  const author = authors[post.author];
+export type PostCardData = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  authorName: string;
+  published: string;
+  updated?: string;
+  image?: { src: StaticImageData | string; alt: string };
+};
+
+export function PostCard({ post }: { post: PostCardData }) {
   return (
     <article className="reveal group card card-hover card-fx relative flex h-full flex-col">
       {post.image ? (
@@ -35,7 +44,7 @@ export function PostCard({ post }: { post: BlogPost }) {
         </h3>
         <p className="mt-3 flex-1 text-base leading-relaxed">{post.excerpt}</p>
         <p className="mt-5 text-sm text-muted">
-          {author.name} · <time dateTime={post.updated ?? post.published}>{formatDate(post.updated ?? post.published)}</time>
+          {post.authorName} · <time dateTime={post.updated ?? post.published}>{formatDate(post.updated ?? post.published)}</time>
           {post.updated ? " (updated)" : ""}
         </p>
         <span className="mt-4 inline-flex items-center gap-2 font-semibold text-teal-ink group-hover:text-navy">

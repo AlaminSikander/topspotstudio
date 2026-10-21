@@ -1,0 +1,25 @@
+## 1. Fresh forward migration on empty tss_cms_test
+[00:21:26] [32mINFO[39m: [36mMigrating: 20261021_150424_initial_cms_schema[39m
+[00:21:26] [32mINFO[39m: [36mMigrated:  20261021_150424_initial_cms_schema (208ms)[39m
+[00:21:26] [32mINFO[39m: [36mDone.[39m
+## 2. Seed
+16
+## 3. Rollback (migrate:down) then re-apply
+[00:21:33] [32mINFO[39m: [36mMigrating down: 20261021_150424_initial_cms_schema[39m
+[00:21:33] [32mINFO[39m: [36mMigrated down:  20261021_150424_initial_cms_schema (105ms)[39m
+[00:21:33] [32mINFO[39m: [36mDone.[39m
+0
+[00:21:36] [32mINFO[39m: [36mMigrated:  20261021_150424_initial_cms_schema (124ms)[39m
+├────────────────────────────────────┼───────┼─────┤
+│[37m [0m[32m20261021_150424_initial_cms_schema[0m │[37m [0m[32m    1[0m │[37m [0m[32mYes[0m │
+└────────────────────────────────────┴───────┴─────┘
+[00:21:39] [32mINFO[39m: [36mDone.[39m
+## 4. Backup dev DB and restore into test DB
+425K
+pages dev=15 restored=15
+posts dev=1 restored=1
+users dev=2 restored=2
+media dev=0 restored=0
+redirects dev=0 restored=0
+audit_logs dev=178 restored=178
+_pages_v dev=48 restored=48

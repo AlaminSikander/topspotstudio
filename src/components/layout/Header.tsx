@@ -3,35 +3,20 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import {
-  ArrowUpRight,
-  ChevronDown,
-  Hammer,
-  LayoutTemplate,
-  MapPin,
-  Menu,
-  Search,
-  Wrench,
-  X,
-  type LucideIcon,
-} from "lucide-react";
+import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
+import { iconFor } from "@/components/cms/icons";
 import { CtaLink } from "@/components/ui/CtaLink";
-import { mainNav, routes, type NavLink } from "@/lib/site";
+
+export type NavLink = { label: string; href: string; icon?: string | null; note?: string | null };
+export type NavItem = NavLink | { label: string; children: NavLink[] };
+export type HeaderCta = { label: string; href: string } | null;
 
 function isActive(pathname: string, href: string) {
   return href === "/" ? pathname === "/" : pathname.startsWith(href);
 }
 
 const slug = (label: string) => label.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-
-const linkDetails: Record<string, { icon: LucideIcon; note: string }> = {
-  [routes.nzSeo]: { icon: Search, note: "Strategy, technical & on-page SEO" },
-  [routes.nzLocalSeo]: { icon: MapPin, note: "Google Business Profile & local search" },
-  [routes.tradies]: { icon: Wrench, note: "Local search for trade businesses" },
-  [routes.roofing]: { icon: Hammer, note: "Our initial specialist niche" },
-  [routes.webDesign]: { icon: LayoutTemplate, note: "Websites built around enquiries" },
-};
 
 function NavDropdown({ label, items, pathname }: { label: string; items: NavLink[]; pathname: string }) {
   const [open, setOpen] = useState(false);
@@ -90,8 +75,7 @@ function NavDropdown({ label, items, pathname }: { label: string; items: NavLink
       >
         <ul className="glass rounded-[20px] p-2">
           {items.map((item) => {
-            const detail = linkDetails[item.href];
-            const Icon = detail?.icon;
+            const Icon = iconFor(item.icon);
             return (
               <li key={item.href}>
                 <Link
@@ -107,7 +91,7 @@ function NavDropdown({ label, items, pathname }: { label: string; items: NavLink
                   ) : null}
                   <span className="min-w-0 flex-1">
                     <span className="block text-[0.95rem] font-semibold text-navy">{item.label}</span>
-                    {detail ? <span className="block text-sm text-muted">{detail.note}</span> : null}
+                    {item.note ? <span className="block text-sm text-muted">{item.note}</span> : null}
                   </span>
                   <ArrowUpRight
                     aria-hidden
@@ -166,8 +150,7 @@ function MobileGroup({
       >
         <ul className="grid min-h-0 gap-1 overflow-hidden">
           {items.map((child, i) => {
-            const detail = linkDetails[child.href];
-            const Icon = detail?.icon;
+            const Icon = iconFor(child.icon);
             return (
               <li key={child.href} className={i === items.length - 1 ? "pb-3" : ""}>
                 <Link
@@ -182,7 +165,7 @@ function MobileGroup({
                   ) : null}
                   <span className="min-w-0">
                     <span className="block text-base font-semibold">{child.label}</span>
-                    {detail ? <span className="block text-sm text-muted">{detail.note}</span> : null}
+                    {child.note ? <span className="block text-sm text-muted">{child.note}</span> : null}
                   </span>
                 </Link>
               </li>
@@ -194,7 +177,7 @@ function MobileGroup({
   );
 }
 
-export function Header() {
+export function Header({ items, cta, homeHref = "/" }: { items: NavItem[]; cta: HeaderCta; homeHref?: string }) {
   const pathname = usePathname() || "/";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -236,13 +219,13 @@ export function Header() {
             : "border-white/60 bg-white/65 shadow-[0_8px_30px_-20px_rgb(15_39_66/0.35)] backdrop-blur-lg"
         }`}
       >
-        <Link href={routes.home} className="shrink-0 rounded-md" aria-label="Top Spot Studio home">
+        <Link href={homeHref} className="shrink-0 rounded-md" aria-label="Top Spot Studio home">
           <Logo className="scale-90 origin-left sm:scale-100" />
         </Link>
 
         <nav aria-label="Main" className="hidden lg:block">
           <ul className="flex items-center">
-            {mainNav.map((item) =>
+            {items.map((item) =>
               "children" in item ? (
                 <li key={item.label}>
                   <NavDropdown label={item.label} items={item.children} pathname={pathname} />
@@ -262,11 +245,13 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="hidden lg:block">
-          <CtaLink href={routes.audit} location="header" className="min-h-11 rounded-[14px] px-5 py-2.5 text-[0.94rem]" arrow>
-            Free SEO Audit
-          </CtaLink>
-        </div>
+        {cta ? (
+          <div className="hidden lg:block">
+            <CtaLink href={cta.href} location="header" className="min-h-11 rounded-[14px] px-5 py-2.5 text-[0.94rem]" arrow>
+              {cta.label}
+            </CtaLink>
+          </div>
+        ) : null}
 
         <button
           type="button"
@@ -296,7 +281,7 @@ export function Header() {
       >
         <nav aria-label="Mobile" className="mx-auto max-w-[1240px] rounded-[24px] border border-white/70 bg-white/95 p-5 shadow-[var(--shadow-lift)]">
           <ul className="divide-y divide-line/80">
-            {mainNav.map((item, i) => {
+            {items.map((item, i) => {
               const style = { "--d": `${60 + i * 45}ms` } as CSSProperties;
               const animate = mobileOpen ? "rise-in" : "";
               return "children" in item ? (
@@ -322,9 +307,11 @@ export function Header() {
               );
             })}
           </ul>
-          <CtaLink href={routes.audit} location="mobile_menu" className="mt-5 w-full" arrow>
-            Free SEO Audit
-          </CtaLink>
+          {cta ? (
+            <CtaLink href={cta.href} location="mobile_menu" className="mt-5 w-full" arrow>
+              {cta.label}
+            </CtaLink>
+          ) : null}
         </nav>
       </div>
     </header>

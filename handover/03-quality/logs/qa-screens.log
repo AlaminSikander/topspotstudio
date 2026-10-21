@@ -1,0 +1,5 @@
+
+> top-spot-studio-website@1.0.0 qa:screens
+> node scripts/screenshots.mjs http://localhost:3100
+
+No console errors, failed requests or overflow detected.

@@ -46,6 +46,7 @@ export function ProofSection({
   noteTitle = "Proof note",
   ctaLabel = "View SEO Case Studies",
   metrics = influencerMetrics,
+  comparison = <InfluencerComparison />,
 }: {
   id?: string;
   eyebrow?: string;
@@ -55,6 +56,7 @@ export function ProofSection({
   noteTitle?: string;
   ctaLabel?: string;
   metrics?: Metric[];
+  comparison?: ReactNode;
 }) {
   return (
     <section id={id} aria-labelledby={`${id}-title`} className="section relative overflow-clip bg-white">
@@ -66,7 +68,7 @@ export function ProofSection({
         <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-20">
           <SectionHeader id={`${id}-title`} eyebrow={eyebrow} title={title} intro={intro} />
           <div className="reveal" style={{ "--i": 1 } as CSSProperties}>
-            <InfluencerComparison />
+            {comparison}
           </div>
         </div>
         <div className="mt-14">
