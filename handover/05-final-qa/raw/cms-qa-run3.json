@@ -1,0 +1,842 @@
+[
+  {
+    "id": "AUTH-01",
+    "area": "auth",
+    "name": "Invalid password is rejected",
+    "status": "PASS",
+    "detail": "401"
+  },
+  {
+    "id": "AUTH-02",
+    "area": "auth",
+    "name": "Unknown account is rejected",
+    "status": "PASS",
+    "detail": "401"
+  },
+  {
+    "id": "AUTH-03",
+    "area": "auth",
+    "name": "Admin login succeeds",
+    "status": "PASS",
+    "detail": "200"
+  },
+  {
+    "id": "AUTH-04",
+    "area": "auth",
+    "name": "Session cookie is HttpOnly + SameSite=Lax",
+    "status": "PASS",
+    "detail": "payload-token=<redacted>; Expires=Thu, 22 Oct 2026 17:51:37 GMT; Path=/; HttpOnly=true; SameSite=Lax"
+  },
+  {
+    "id": "AUTH-05",
+    "area": "auth",
+    "name": "Editor login succeeds",
+    "status": "PASS",
+    "detail": "200"
+  },
+  {
+    "id": "AUTH-06",
+    "area": "auth",
+    "name": "No public registration (first-register blocked once users exist)",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "AUTH-07",
+    "area": "auth",
+    "name": "Anonymous cannot create users",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "AUTH-08",
+    "area": "auth",
+    "name": "Password policy rejects short passwords",
+    "status": "PASS",
+    "detail": "400"
+  },
+  {
+    "id": "AUTH-09",
+    "area": "auth",
+    "name": "Account locks after 5 failed attempts (correct password refused while locked)",
+    "status": "PASS",
+    "detail": "401"
+  },
+  {
+    "id": "AUTH-10",
+    "area": "auth",
+    "name": "Admin can unlock a locked account",
+    "status": "PASS",
+    "detail": "200"
+  },
+  {
+    "id": "AUTH-11",
+    "area": "auth",
+    "name": "Inactive accounts cannot sign in",
+    "status": "PASS",
+    "detail": "401"
+  },
+  {
+    "id": "AUTH-12",
+    "area": "auth",
+    "name": "Logout ends the session",
+    "status": "PASS",
+    "detail": "{\"user\":null,\"message\":\"Account\"}"
+  },
+  {
+    "id": "AUTH-13",
+    "area": "auth",
+    "name": "Cookie auth ignored for untrusted Origin (CSRF)",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "AUTH-14",
+    "area": "auth",
+    "name": "Password reset sends a reset email (mock SMTP)",
+    "status": "PASS",
+    "detail": "200 mail=862b"
+  },
+  {
+    "id": "PERM-01",
+    "area": "permissions",
+    "name": "Editor sees only their own user record",
+    "status": "PASS",
+    "detail": "1"
+  },
+  {
+    "id": "PERM-02",
+    "area": "permissions",
+    "name": "Editor cannot create users",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "PERM-03",
+    "area": "permissions",
+    "name": "Editor cannot promote themselves to admin",
+    "status": "PASS",
+    "detail": "editor"
+  },
+  {
+    "id": "PERM-04",
+    "area": "permissions",
+    "name": "Editor cannot read tracking codes",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "PERM-05",
+    "area": "permissions",
+    "name": "Editor cannot read the audit log",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "PERM-06",
+    "area": "permissions",
+    "name": "Editor cannot change site settings",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "PERM-07",
+    "area": "permissions",
+    "name": "Editor cannot add tracking codes",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "PERM-08",
+    "area": "permissions",
+    "name": "Editor cannot delete pages",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "PERM-09",
+    "area": "permissions",
+    "name": "Built-in pages cannot be deleted, even by an admin",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "PERM-10",
+    "area": "permissions",
+    "name": "Built-in page URLs cannot be changed from the CMS",
+    "status": "PASS",
+    "detail": "200"
+  },
+  {
+    "id": "PERM-11",
+    "area": "permissions",
+    "name": "Editors cannot unpublish built-in pages (would 404 a live URL)",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "ANON-01",
+    "area": "anonymous",
+    "name": "Anonymous GET /users/ is denied",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "ANON-02",
+    "area": "anonymous",
+    "name": "Anonymous GET /redirects/ is denied",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "ANON-03",
+    "area": "anonymous",
+    "name": "Anonymous GET /code-snippets/ is denied",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "ANON-04",
+    "area": "anonymous",
+    "name": "Anonymous GET /audit-logs/ is denied",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "ANON-05",
+    "area": "anonymous",
+    "name": "Anonymous GET /globals/site-settings/ is denied",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "ANON-06",
+    "area": "anonymous",
+    "name": "Anonymous GET /pages/versions/ is denied",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "ANON-07",
+    "area": "anonymous",
+    "name": "Anonymous cannot create pages",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "ANON-08",
+    "area": "anonymous",
+    "name": "Anonymous post listing excludes drafts",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "ANON-09",
+    "area": "anonymous",
+    "name": "GraphQL API is disabled",
+    "status": "PASS",
+    "detail": "404"
+  },
+  {
+    "id": "EDIT-01",
+    "area": "editing",
+    "name": "Editor can create a draft page",
+    "status": "PASS",
+    "detail": "201"
+  },
+  {
+    "id": "DRAFT-01",
+    "area": "drafts",
+    "name": "Draft page is not public (404)",
+    "status": "PASS",
+    "detail": "404"
+  },
+  {
+    "id": "DRAFT-02",
+    "area": "drafts",
+    "name": "Draft page is not readable through the public API",
+    "status": "PASS",
+    "detail": "404"
+  },
+  {
+    "id": "DRAFT-03",
+    "area": "drafts",
+    "name": "Draft page is not in the sitemap",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "PUB-01",
+    "area": "publishing",
+    "name": "Editor with publish permission can publish",
+    "status": "PASS",
+    "detail": "200"
+  },
+  {
+    "id": "PUB-02",
+    "area": "publishing",
+    "name": "Published CMS page renders server-side (200)",
+    "status": "PASS",
+    "detail": "200"
+  },
+  {
+    "id": "SEO-01",
+    "area": "seo",
+    "name": "CMS SEO title is in the initial HTML",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "SEO-02",
+    "area": "seo",
+    "name": "Exactly one canonical, self-referencing on the preferred domain",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "SEO-03",
+    "area": "seo",
+    "name": "Exactly one title and one meta description",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "SEO-04",
+    "area": "seo",
+    "name": "FAQ section produces FAQPage JSON-LD",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "LINK-01",
+    "area": "links",
+    "name": "Internal link to a page renders as a crawlable <a href>",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "EDIT-02",
+    "area": "editing",
+    "name": "Section order follows the CMS order",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "SITEMAP-01",
+    "area": "sitemap",
+    "name": "Publishing adds the page to sitemap.xml",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "SEO-05",
+    "area": "seo",
+    "name": "Generated OG image exists for a new page",
+    "status": "PASS",
+    "detail": "200"
+  },
+  {
+    "id": "DRAFT-04",
+    "area": "drafts",
+    "name": "Saving a draft of a published page does not change the live page",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "PREV-01",
+    "area": "preview",
+    "name": "Preview without a session redirects to the CMS login",
+    "status": "PASS",
+    "detail": "/admin/login/?redirect=%2Fpreview%2F%3Fpath%3D%252Fqa-test-page%252F"
+  },
+  {
+    "id": "PREV-02",
+    "area": "preview",
+    "name": "Preview with a session enables Draft Mode",
+    "status": "PASS",
+    "detail": "307"
+  },
+  {
+    "id": "PREV-03",
+    "area": "preview",
+    "name": "Preview shows the unpublished draft",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "PREV-04",
+    "area": "preview",
+    "name": "Preview pages are noindex",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "PREV-05",
+    "area": "preview",
+    "name": "A copied draft-mode cookie without a CMS session shows only published content",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "PREV-06",
+    "area": "preview",
+    "name": "Exit preview clears Draft Mode",
+    "status": "PASS",
+    "detail": "payload-token"
+  },
+  {
+    "id": "EDIT-03",
+    "area": "editing",
+    "name": "Reordered sections appear after publishing",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "LINK-02",
+    "area": "links",
+    "name": "External new-tab link gets target=_blank and rel=noopener noreferrer",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "LINK-03",
+    "area": "links",
+    "name": "Removing a link removes the anchor",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "REV-01",
+    "area": "revisions",
+    "name": "Restoring an earlier revision brings back its content",
+    "status": "PASS",
+    "detail": "200"
+  },
+  {
+    "id": "SEO-06",
+    "area": "seo",
+    "name": "Robots noindex is output and the page leaves the sitemap",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "PERM-12",
+    "area": "permissions",
+    "name": "Editor without publish permission can save drafts but not publish",
+    "status": "PASS",
+    "detail": "403/200"
+  },
+  {
+    "id": "PUB-03",
+    "area": "publishing",
+    "name": "Unpublishing returns 404 and removes the page from the sitemap",
+    "status": "PASS",
+    "detail": "404"
+  },
+  {
+    "id": "SEO-07",
+    "area": "seo",
+    "name": "SEO-only edit on a service page updates <title> and og:title in server HTML",
+    "status": "PASS",
+    "detail": "200"
+  },
+  {
+    "id": "SEO-08",
+    "area": "seo",
+    "name": "Reverting the SEO title restores the original output",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "EDIT-04",
+    "area": "editing",
+    "name": "Homepage hero edit appears on the live homepage",
+    "status": "PASS",
+    "detail": "200"
+  },
+  {
+    "id": "EDIT-05",
+    "area": "editing",
+    "name": "Homepage restored to the original copy",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "NAV-01",
+    "area": "navigation",
+    "name": "Navigation label change appears in the site header",
+    "status": "PASS",
+    "detail": "200"
+  },
+  {
+    "id": "NAV-02",
+    "area": "navigation",
+    "name": "Navigation restored",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "BLOG-01",
+    "area": "blog",
+    "name": "Editor can create a draft post",
+    "status": "PASS",
+    "detail": "201"
+  },
+  {
+    "id": "BLOG-02",
+    "area": "blog",
+    "name": "Draft post is not public (404)",
+    "status": "PASS",
+    "detail": "404"
+  },
+  {
+    "id": "BLOG-03",
+    "area": "blog",
+    "name": "Draft post can be previewed by a signed-in editor",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "BLOG-04",
+    "area": "blog",
+    "name": "Published post renders and appears in the blog listing",
+    "status": "PASS",
+    "detail": "200"
+  },
+  {
+    "id": "BLOG-05",
+    "area": "blog",
+    "name": "Post outputs BlogPosting + BreadcrumbList JSON-LD",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "BLOG-06",
+    "area": "blog",
+    "name": "Post robots follow the blog flag (noindex while NEXT_PUBLIC_BLOG_ENABLED is false)",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "BLOG-07",
+    "area": "blog",
+    "name": "Sitemap respects the blog launch rule (blog enabled AND ≥3 posts)",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "BLOG-08",
+    "area": "blog",
+    "name": "Updating a published post changes the live article",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "BLOG-09",
+    "area": "blog",
+    "name": "Changing a published slug creates a 308 redirect from the old URL",
+    "status": "PASS",
+    "detail": "308 /blog/qa-test-article-renamed/, /blog/qa-test-article-renamed/"
+  },
+  {
+    "id": "BLOG-10",
+    "area": "blog",
+    "name": "Unpublishing removes the post (404) and its listing card",
+    "status": "PASS",
+    "detail": "404"
+  },
+  {
+    "id": "REDIR-01",
+    "area": "redirects",
+    "name": "Editor can create an internal redirect",
+    "status": "PASS",
+    "detail": "201"
+  },
+  {
+    "id": "REDIR-02",
+    "area": "redirects",
+    "name": "Permanent redirect returns 308 to the destination",
+    "status": "PASS",
+    "detail": "308 /about/"
+  },
+  {
+    "id": "REDIR-03",
+    "area": "redirects",
+    "name": "Temporary redirect returns 307; source path is normalised",
+    "status": "PASS",
+    "detail": "/qa-test-temp/ 307"
+  },
+  {
+    "id": "REDIR-04",
+    "area": "redirects",
+    "name": "Redirecting a live page is blocked",
+    "status": "PASS",
+    "detail": "400 \"An unknown error occurred.\""
+  },
+  {
+    "id": "REDIR-05",
+    "area": "redirects",
+    "name": "Redirect chains are blocked",
+    "status": "PASS",
+    "detail": "400 \"An unknown error occurred.\""
+  },
+  {
+    "id": "REDIR-06",
+    "area": "redirects",
+    "name": "Protocol-relative (open redirect) destinations are blocked",
+    "status": "PASS",
+    "detail": "400 \"An unknown error occurred.\""
+  },
+  {
+    "id": "REDIR-07",
+    "area": "redirects",
+    "name": "Editors cannot redirect to other websites",
+    "status": "PASS",
+    "detail": "400 \"An unknown error occurred.\""
+  },
+  {
+    "id": "REDIR-08",
+    "area": "redirects",
+    "name": "Reserved paths (admin/API) cannot be redirected",
+    "status": "PASS",
+    "detail": "400 \"An unknown error occurred.\""
+  },
+  {
+    "id": "REDIR-09",
+    "area": "redirects",
+    "name": "Destinations must be live pages",
+    "status": "PASS",
+    "detail": "400 \"An unknown error occurred.\""
+  },
+  {
+    "id": "REDIR-10",
+    "area": "redirects",
+    "name": "javascript: destinations are blocked",
+    "status": "PASS",
+    "detail": "400 \"An unknown error occurred.\""
+  },
+  {
+    "id": "REDIR-11",
+    "area": "redirects",
+    "name": "Admins can create an approved external https redirect",
+    "status": "PASS",
+    "detail": "308"
+  },
+  {
+    "id": "REDIR-12",
+    "area": "redirects",
+    "name": "Disabling a redirect makes the old URL 404 again",
+    "status": "PASS",
+    "detail": "200"
+  },
+  {
+    "id": "CODE-01",
+    "area": "tracking",
+    "name": "Admin can add verification and tracking codes",
+    "status": "PASS",
+    "detail": "201,201,201,201,201"
+  },
+  {
+    "id": "CODE-02",
+    "area": "tracking",
+    "name": "Search Console meta tag is inside <head>",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "CODE-03",
+    "area": "tracking",
+    "name": "GTM <noscript> is the first element after <body> (only Next's empty placeholder precedes it)",
+    "status": "PASS",
+    "detail": "<noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-QATEST1\" "
+  },
+  {
+    "id": "CODE-04",
+    "area": "tracking",
+    "name": "Footer script is after the site footer, before </body>",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "CODE-05",
+    "area": "tracking",
+    "name": "Consent-gated script is inert (type=text/plain + data-category)",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "CODE-06",
+    "area": "tracking",
+    "name": "Page-scoped code appears only on the selected page (in <head>)",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "CODE-07",
+    "area": "tracking",
+    "name": "Provider placement is enforced (GTM body snippet in <head> rejected)",
+    "status": "PASS",
+    "detail": "400 \"An unknown error occurred.\""
+  },
+  {
+    "id": "CODE-08",
+    "area": "tracking",
+    "name": "Inline event handlers are rejected",
+    "status": "PASS",
+    "detail": "400 \"An unknown error occurred.\""
+  },
+  {
+    "id": "CODE-09",
+    "area": "tracking",
+    "name": "Non-https script sources are rejected",
+    "status": "PASS",
+    "detail": "400 \"An unknown error occurred.\""
+  },
+  {
+    "id": "CODE-10",
+    "area": "tracking",
+    "name": "Inline scripts cannot be page-scoped",
+    "status": "PASS",
+    "detail": "400 \"An unknown error occurred.\""
+  },
+  {
+    "id": "CODE-11",
+    "area": "tracking",
+    "name": "Malformed verification tags are rejected",
+    "status": "PASS",
+    "detail": "400 \"An unknown error occurred.\""
+  },
+  {
+    "id": "CODE-12",
+    "area": "tracking",
+    "name": "Tracking codes are not added to preview pages",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "CODE-13",
+    "area": "tracking",
+    "name": "Disabling a code removes it from the site",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "MEDIA-01",
+    "area": "media",
+    "name": "Editor can upload a valid image with alt text",
+    "status": "PASS",
+    "detail": "201"
+  },
+  {
+    "id": "MEDIA-02",
+    "area": "media",
+    "name": "Media usage endpoint reports where an image is used",
+    "status": "PASS",
+    "detail": "200"
+  },
+  {
+    "id": "MEDIA-03",
+    "area": "media",
+    "name": "Uploaded image is publicly served",
+    "status": "PASS",
+    "detail": "200"
+  },
+  {
+    "id": "MEDIA-04",
+    "area": "media",
+    "name": "Upload without alt text is rejected",
+    "status": "PASS",
+    "detail": "400"
+  },
+  {
+    "id": "MEDIA-05",
+    "area": "media",
+    "name": "SVG uploads are rejected",
+    "status": "PASS",
+    "detail": "400"
+  },
+  {
+    "id": "MEDIA-06",
+    "area": "media",
+    "name": "Non-image content disguised as .png is rejected",
+    "status": "PASS",
+    "detail": "400"
+  },
+  {
+    "id": "MEDIA-07",
+    "area": "media",
+    "name": "Anonymous users cannot upload",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "AUDIT-01",
+    "area": "audit",
+    "name": "Publish, unpublish, redirect, code and login events are audited",
+    "status": "PASS",
+    "detail": "media:create code-snippets:update code-snippets:create redirects:update redirects:create posts:unpublish posts:publish posts:draft navigation:update pages:publish pages:unpublish users:update pages:draft users:logout users:login users:create footer:update users:delete media:delete pages:delete posts:delete redirects:delete code-snippets:delete"
+  },
+  {
+    "id": "AUDIT-02",
+    "area": "audit",
+    "name": "Audit entries cannot be deleted, even by an admin",
+    "status": "PASS",
+    "detail": "403"
+  },
+  {
+    "id": "SEC-01",
+    "area": "security",
+    "name": "Admin pages send X-Robots-Tag noindex and no-store",
+    "status": "PASS",
+    "detail": "noindex, nofollow | private, no-store"
+  },
+  {
+    "id": "SEC-02",
+    "area": "security",
+    "name": "CMS API responses send X-Robots-Tag noindex",
+    "status": "PASS",
+    "detail": "noindex, nofollow"
+  },
+  {
+    "id": "SEC-03",
+    "area": "security",
+    "name": "robots.txt disallows /admin/ and /cms-api/ in production",
+    "status": "PASS",
+    "detail": "User-Agent: * | Allow: / | Allow: /cms-api/media/file/ | Disallow: /api/ | Disallow: /admin/ | Disallow: /cms-api/ | Disallow: /preview/ | Disallow: /exit-preview/ |  | Sitemap: https://topspotstudio.com/sitemap.xml | "
+  },
+  {
+    "id": "SEC-04",
+    "area": "security",
+    "name": "Admin collection views redirect to login and expose no content",
+    "status": "PASS",
+    "detail": "200"
+  },
+  {
+    "id": "SEC-05",
+    "area": "security",
+    "name": "No server secrets in client bundles (.next/static)",
+    "status": "PASS",
+    "detail": "3 secrets checked"
+  },
+  {
+    "id": "SEC-06",
+    "area": "security",
+    "name": "No secrets or database URLs in public HTML",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "id": "AUTH-15",
+    "area": "auth",
+    "name": "Login endpoint is rate-limited per IP (429 after 10 attempts)",
+    "status": "PASS",
+    "detail": "401,401,401,401,401,401,401,401,401,401,429,429"
+  },
+  {
+    "id": "CLEANUP",
+    "area": "runner",
+    "name": "All QA test records were removed",
+    "status": "PASS",
+    "detail": "0,0,0"
+  }
+]

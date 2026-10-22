@@ -1,0 +1,10 @@
+add test links: 200
+rows: "\tQA missing page\t/qa-missing-page/\tBroken\tbottomLinks[2]" "\tQA missing anchor\t/about/#qa-no-such-anchor\tMissing #anchor\tbottomLinks[3]"
+restore footer: 200
+PASS  Link Manager lists /qa-missing-page/ as Broken
+PASS  Link Manager lists /about/#qa-no-such-anchor as missing anchor
+PASS  Dashboard broken-link count shows 2 (got 2)
+PASS  Footer restored to original content
+PASS  Dashboard broken-link count back to 0 (got 0)
+PASS  Public footer HTML identical before/after
+PASS  Hidden test links never rendered publicly

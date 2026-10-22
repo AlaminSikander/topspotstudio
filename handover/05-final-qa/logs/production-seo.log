@@ -1,0 +1,72 @@
+Read-only checks of https://topspotstudio.com at 2026-10-22 16:11 +06 (code a330b97 deployed)
+== robots.txt
+User-Agent: *
+Disallow: /
+
+
+== sitemap.xml <loc> count: 0
+== /
+HTTP/2 200 
+x-robots-tag: noindex, nofollow
+<meta name="robots" content="noindex, nofollow"
+<link rel="canonical" href="https://topspotstudio.com/"
+== /about/
+HTTP/2 200 
+x-robots-tag: noindex, nofollow
+<meta name="robots" content="noindex, nofollow"
+<link rel="canonical" href="https://topspotstudio.com/about/"
+== /contact/
+HTTP/2 200 
+x-robots-tag: noindex, nofollow
+<meta name="robots" content="noindex, nofollow"
+<link rel="canonical" href="https://topspotstudio.com/contact/"
+== /free-seo-audit/
+HTTP/2 200 
+x-robots-tag: noindex, nofollow
+<meta name="robots" content="noindex, nofollow"
+<link rel="canonical" href="https://topspotstudio.com/free-seo-audit/"
+== /blog/
+HTTP/2 200 
+x-robots-tag: noindex, nofollow
+<meta name="robots" content="noindex, nofollow"
+<link rel="canonical" href="https://topspotstudio.com/blog/"
+== /case-studies/
+HTTP/2 200 
+x-robots-tag: noindex, nofollow
+<meta name="robots" content="noindex, nofollow"
+<link rel="canonical" href="https://topspotstudio.com/case-studies/"
+== /industries/roofing-seo/
+HTTP/2 200 
+x-robots-tag: noindex, nofollow
+<meta name="robots" content="noindex, nofollow"
+<link rel="canonical" href="https://topspotstudio.com/industries/roofing-seo/"
+== /markets/new-zealand/seo/
+HTTP/2 200 
+x-robots-tag: noindex, nofollow
+<meta name="robots" content="noindex, nofollow"
+<link rel="canonical" href="https://topspotstudio.com/markets/new-zealand/seo/"
+== /privacy-policy/
+HTTP/2 200 
+x-robots-tag: noindex, nofollow
+<meta name="robots" content="noindex, nofollow"
+<link rel="canonical" href="https://topspotstudio.com/privacy-policy/"
+== /admin/
+HTTP/2 200 
+x-robots-tag: noindex, nofollow
+<meta name="robots" content="noindex, nofollow"
+== /does-not-exist-qa/
+HTTP/2 404 
+x-robots-tag: noindex, nofollow
+<meta name="robots" content="noindex"
+<meta name="robots" content="noindex, follow"
+== host redirects
+http://topspotstudio.com/  308 -> https://topspotstudio.com/
+https://www.topspotstudio.com/  308 -> https://topspotstudio.com/
+https://www.topspotstudio.com/about/?x=1  308 -> https://topspotstudio.com/about/?x=1
+https://www.topspotstudio.com/about  308 -> https://www.topspotstudio.com/about/
+http://www.topspotstudio.com/contact/  308 -> https://www.topspotstudio.com/contact/
+== admin/API exposure
+/cms-api/users/init/ 200 {"initialized":true}
+/cms-api/users/ 403 {"errors":[{"message":"You are not allowed to perform this action."}]}
+/cms-api/audit-logs/ 403 {"errors":[{"message":"You are not allowed to perform this action."}]}
+/cms-api/graphql/ 404 {"message":"Route not found \"/cms-api/graphql\""}
