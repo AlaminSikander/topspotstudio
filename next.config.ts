@@ -1,8 +1,7 @@
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 import { withPayload } from "@payloadcms/next/withPayload";
-
-const isProduction = process.env.NEXT_PUBLIC_SITE_ENV === "production";
+import { CANONICAL_ORIGIN, IS_PRODUCTION as isProduction, WWW_HOST } from "./src/lib/site";
 
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
@@ -36,6 +35,15 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
+  },
+  async redirects() {
+    // `/:path*` captures without the trailing slash, so it is restored for pages (but not files) to land in one hop.
+    const fromWww = [{ type: "host" as const, value: WWW_HOST.replace(/\./g, "\\.") }];
+    return [
+      { source: "/", has: fromWww, destination: `${CANONICAL_ORIGIN}/`, permanent: true },
+      { source: "/:file((?:[^/]+/)*[^/]+\\.\\w+)", has: fromWww, destination: `${CANONICAL_ORIGIN}/:file`, permanent: true },
+      { source: "/:path*", has: fromWww, destination: `${CANONICAL_ORIGIN}/:path*/`, permanent: true },
+    ];
   },
   async headers() {
     const headers = [...securityHeaders];

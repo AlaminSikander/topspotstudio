@@ -2,6 +2,7 @@ import "server-only";
 import { cache } from "react";
 import { postPath } from "@/cms/lib/paths";
 import type { CodeSnippet, Footer, Navigation, Page, Post, SiteSetting } from "@/payload-types";
+import { SITE_ENV, type SiteEnv } from "@/lib/site";
 import type { PathMap } from "./links";
 import { getPayloadClient, getPreviewContext } from "./payload";
 
@@ -104,12 +105,7 @@ export async function findRedirect(path: string): Promise<RedirectHit | null> {
   return { destination, permanent: r.statusCode !== "307" };
 }
 
-export const siteEnvironment = (): "production" | "staging" | "development" => {
-  const env = process.env.NEXT_PUBLIC_SITE_ENV;
-  if (env === "production") return "production";
-  if (env === "development" || (!env && process.env.NODE_ENV === "development")) return "development";
-  return "staging";
-};
+export const siteEnvironment = (): SiteEnv => SITE_ENV;
 
 export const getCodeSnippets = cache(async (): Promise<CodeSnippet[]> => {
   const payload = await getPayloadClient();

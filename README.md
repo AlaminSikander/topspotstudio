@@ -38,8 +38,8 @@ Leaving the email variables empty in development is fine. The forms then return 
 
 | Variable | Required | Purpose |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Yes | Absolute origin, no trailing slash (e.g. `https://www.example.co.nz`). Used for canonicals, sitemap, OG and schema. |
-| `NEXT_PUBLIC_SITE_ENV` | Yes | `production` makes the site indexable. Any other value sends `noindex` (meta and `X-Robots-Tag` header), blocks crawling in `robots.txt` and empties the sitemap. |
+| `NEXT_PUBLIC_SITE_URL` | Yes | Absolute origin, no trailing slash (`https://topspotstudio.com`). Used for canonicals, sitemap, OG and schema. Falls back to `https://topspotstudio.com` in production. |
+| `NEXT_PUBLIC_SITE_ENV` | Recommended | `production` makes the site indexable. Any other value sends `noindex` (meta and `X-Robots-Tag` header), blocks crawling in `robots.txt` and empties the sitemap. When unset, Vercel's `VERCEL_ENV` decides: Production deployments are indexable, Preview/Development are not. |
 | `SMTP_HOST` | For forms | SMTP server host, e.g. `smtp.gmail.com` (server-only). |
 | `SMTP_PORT` | For forms | SMTP port. Defaults to `587`; use `465` for implicit TLS. |
 | `SMTP_SECURE` | Optional | `true` for implicit TLS. Defaults to `true` on port 465, otherwise STARTTLS is used when offered. |
@@ -68,7 +68,7 @@ npm run start               # serves the production build on :3000
 2. Under **Project → Settings → Environment Variables**:
    - **Preview:** `NEXT_PUBLIC_SITE_ENV=staging`, plus a `NEXT_PUBLIC_SITE_URL` (for example the preview domain). Keep Vercel Deployment Protection on, so staging is never public.
    - **Production:** `NEXT_PUBLIC_SITE_ENV=production`, the final `NEXT_PUBLIC_SITE_URL`, the three email variables and, when ready, `NEXT_PUBLIC_GTM_ID`.
-3. Add the production domain under **Settings → Domains**. Choose one preferred host (www or apex) and let Vercel redirect the other. HTTPS is automatic.
+3. Add the production domain under **Settings → Domains**. The preferred host is the apex `topspotstudio.com`; set `www.topspotstudio.com` to redirect to it (308). `next.config.ts` also redirects `www` to the apex as a fallback, so never configure the reverse (apex → www), which would loop. HTTPS is automatic.
 4. Deploy, then run the post-deploy checks below against the live URL.
 
 ### Going live (staging to production)

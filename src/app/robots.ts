@@ -7,7 +7,14 @@ export default function robots(): MetadataRoute.Robots {
     return { rules: [{ userAgent: "*", disallow: "/" }] };
   }
   return {
-    rules: [{ userAgent: "*", allow: "/", disallow: ["/api/", "/admin/", "/cms-api/", "/preview/"] }],
+    rules: [
+      {
+        userAgent: "*",
+        // Uploaded images are public and referenced by pages and og:image tags.
+        allow: ["/", "/cms-api/media/file/"],
+        disallow: ["/api/", "/admin/", "/cms-api/", "/preview/", "/exit-preview/"],
+      },
+    ],
     sitemap: absoluteUrl("/sitemap.xml"),
   };
 }

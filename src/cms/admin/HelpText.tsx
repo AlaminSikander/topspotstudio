@@ -1,3 +1,5 @@
+import { SITE_ENV, SITE_URL } from "@/lib/site";
+
 export function SnippetWarning() {
   return (
     <div className="tss-warning" role="note">
@@ -29,8 +31,8 @@ export function ProofHelp() {
 }
 
 export function SiteUrlInfo() {
-  const url = process.env.NEXT_PUBLIC_SITE_URL || "(not set — defaults to http://localhost:3000)";
-  const env = process.env.NEXT_PUBLIC_SITE_ENV || "(not set)";
+  const url = process.env.NEXT_PUBLIC_SITE_URL ? SITE_URL : `${SITE_URL} (NEXT_PUBLIC_SITE_URL not set — default)`;
+  const env = process.env.NEXT_PUBLIC_SITE_ENV ? SITE_ENV : `${SITE_ENV} (NEXT_PUBLIC_SITE_ENV not set — derived from the Vercel environment)`;
   return (
     <div className="tss-panel" style={{ marginBottom: 16 }}>
       <p style={{ margin: 0 }}>

@@ -8,7 +8,7 @@
 - Takes effect immediately (no rebuild). Saving any redirect also revalidates the site.
 - Automatic redirects are created when a published post’s slug changes or a CMS page’s URL changes.
 - Validation (`src/cms/lib/redirect-rules.ts`, tests REDIR-01…12): normalised lower-case trailing-slash source; homepage, reserved (`/admin`, `/cms-api`, `/api`, `/_next`, `/og`, `/preview`) and live paths rejected; destination must be live; chains and loops rejected; `//host` and `javascript:` rejected; external destinations https-only and admin-only.
-- Existing behaviour preserved: `http→https` and `/about → /about/` (Vercel/Next) are unchanged. The site had no redirects before the CMS, and none were added.
+- Existing behaviour preserved: `http→https` and `/about → /about/` (Vercel/Next) are unchanged. The only code redirect is host-level: `www.topspotstudio.com/<path>?<query>` → 308 `https://topspotstudio.com/<path>?<query>` (`next.config.ts`).
 
 ## Indexing controls by environment
 
