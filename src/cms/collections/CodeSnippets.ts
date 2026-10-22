@@ -115,7 +115,7 @@ export const CodeSnippets: CollectionConfig = {
             { label: "Staging / preview", value: "staging" },
             { label: "Local development", value: "development" },
           ],
-          admin: { width: "50%", description: "Based on NEXT_PUBLIC_SITE_ENV of the deployment." },
+          admin: { width: "50%", description: "Based on the Vercel environment of the deployment (NEXT_PUBLIC_SITE_ENV outside Vercel)." },
         },
         { name: "enabled", type: "checkbox", defaultValue: false, admin: { width: "50%", description: "New codes start disabled. Enable after testing locally." } },
       ],

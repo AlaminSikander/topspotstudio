@@ -9,21 +9,24 @@ export const WWW_HOST = `www.${CANONICAL_HOST}`;
 export type SiteEnv = "production" | "staging" | "development";
 
 /**
- * NEXT_PUBLIC_SITE_ENV wins when set. Without it, a Vercel Production deployment is production and Vercel
- * Preview/Development are staging, so a missing variable can no longer de-index the live site.
+ * On Vercel, VERCEL_ENV alone decides: Production is indexable, Preview/Development are staging, so a stale
+ * NEXT_PUBLIC_SITE_ENV can never de-index the live site. Off Vercel (local, self-hosted) NEXT_PUBLIC_SITE_ENV applies.
  */
 export function resolveSiteEnv(): SiteEnv {
+  if (process.env.VERCEL_ENV === "production") return "production";
+  if (process.env.VERCEL_ENV) return "staging";
   const explicit = process.env.NEXT_PUBLIC_SITE_ENV;
   if (explicit === "production" || explicit === "development") return explicit;
   if (explicit) return "staging";
-  if (process.env.VERCEL_ENV === "production") return "production";
-  if (process.env.VERCEL_ENV) return "staging";
   return process.env.NODE_ENV === "development" ? "development" : "staging";
 }
 
 export const SITE_ENV = resolveSiteEnv();
 export const IS_PRODUCTION = SITE_ENV === "production";
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || (IS_PRODUCTION ? CANONICAL_ORIGIN : "http://localhost:3000")).replace(/\/$/, "");
+/** Production canonicals, sitemap and structured data always use the canonical origin. */
+export const SITE_URL = IS_PRODUCTION
+  ? CANONICAL_ORIGIN
+  : (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, "");
 export const BLOG_ENABLED = process.env.NEXT_PUBLIC_BLOG_ENABLED === "true";
 export const PRIVACY_APPROVED = process.env.NEXT_PUBLIC_PRIVACY_APPROVED === "true";
 export const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "";

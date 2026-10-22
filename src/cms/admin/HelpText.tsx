@@ -31,8 +31,12 @@ export function ProofHelp() {
 }
 
 export function SiteUrlInfo() {
-  const url = process.env.NEXT_PUBLIC_SITE_URL ? SITE_URL : `${SITE_URL} (NEXT_PUBLIC_SITE_URL not set — default)`;
-  const env = process.env.NEXT_PUBLIC_SITE_ENV ? SITE_ENV : `${SITE_ENV} (NEXT_PUBLIC_SITE_ENV not set — derived from the Vercel environment)`;
+  const url = SITE_ENV === "production" || process.env.NEXT_PUBLIC_SITE_URL ? SITE_URL : `${SITE_URL} (NEXT_PUBLIC_SITE_URL not set — default)`;
+  const env = process.env.VERCEL_ENV
+    ? `${SITE_ENV} (Vercel ${process.env.VERCEL_ENV} deployment)`
+    : process.env.NEXT_PUBLIC_SITE_ENV
+      ? SITE_ENV
+      : `${SITE_ENV} (NEXT_PUBLIC_SITE_ENV not set — default)`;
   return (
     <div className="tss-panel" style={{ marginBottom: 16 }}>
       <p style={{ margin: 0 }}>
@@ -41,9 +45,9 @@ export function SiteUrlInfo() {
         <strong>Environment:</strong> {env}
       </p>
       <p className="tss-muted" style={{ margin: "6px 0 0" }}>
-        Canonicals, the sitemap and structured data use this base URL. It is set per deployment with the NEXT_PUBLIC_SITE_URL and
-        NEXT_PUBLIC_SITE_ENV environment variables (a new deployment is needed after changing them), so a preview can never publish
-        production canonicals by accident.
+        Canonicals, the sitemap and structured data use this base URL. Vercel Production always uses https://topspotstudio.com and is
+        indexable; Vercel Previews are noindex and use NEXT_PUBLIC_SITE_URL, so a preview can never publish production canonicals by
+        accident. Outside Vercel, NEXT_PUBLIC_SITE_URL and NEXT_PUBLIC_SITE_ENV apply (a new deployment is needed after changing them).
       </p>
     </div>
   );

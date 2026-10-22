@@ -2717,7 +2717,7 @@ export interface CodeSnippet {
       )[]
     | null;
   /**
-   * Based on NEXT_PUBLIC_SITE_ENV of the deployment.
+   * Based on the Vercel environment of the deployment (NEXT_PUBLIC_SITE_ENV outside Vercel).
    */
   environments: ('production' | 'staging' | 'development')[];
   /**

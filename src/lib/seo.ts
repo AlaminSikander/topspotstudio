@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { IS_PRODUCTION, SITE_NAME, SITE_URL } from "./site";
 
+export const GOOGLEBOT_PREVIEWS = { "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } as const;
+
 export const absoluteUrl = (path: string) => `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
 
 type PageMetaInput = {
@@ -49,7 +51,7 @@ export function pageMetadata({
     title: { absolute: title },
     description,
     alternates: { canonical: canonical || url },
-    robots: indexable ? { index: true, follow } : { index: false, follow },
+    robots: indexable ? { index: true, follow, googleBot: { index: true, follow, ...GOOGLEBOT_PREVIEWS } } : { index: false, follow },
     openGraph: {
       type,
       url,
