@@ -1,0 +1,49 @@
+PASS  [robots] robots.txt 200 — 200
+PASS  [robots] Allows crawling of the site
+PASS  [robots] Disallows /api/
+PASS  [robots] Disallows /admin/
+PASS  [robots] Disallows /cms-api/
+PASS  [robots] Disallows /preview/
+PASS  [robots] Disallows /exit-preview/
+PASS  [robots] Absolute sitemap URL
+FAIL  [robots] No non-standard Host line — Host line present (ignored by Google; removed in the new build)
+PASS  [robots] No X-Robots-Tag on robots.txt
+PASS  [sitemap] sitemap.xml 200 with URLs — 200, 13 URLs
+PASS  [sitemap] All sitemap URLs are canonical-origin https with trailing slash
+PASS  [sitemap] Blog and privacy policy excluded while gated
+PASS  [indexable] / — 200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/
+PASS  [indexable] /markets/new-zealand/seo/ — 200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/markets/new-zealand/seo/
+PASS  [indexable] /markets/new-zealand/local-seo/ — 200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/markets/new-zealand/local-seo/
+PASS  [indexable] /industries/seo-for-tradies/ — 200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/industries/seo-for-tradies/
+PASS  [indexable] /industries/roofing-seo/ — 200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/industries/roofing-seo/
+PASS  [indexable] /industries/web-design-for-tradies/ — 200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/industries/web-design-for-tradies/
+PASS  [indexable] /case-studies/ — 200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/case-studies/
+PASS  [indexable] /case-studies/influencer-marketing-agency-seo-growth/ — 200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/case-studies/influencer-marketing-agency-seo-growth/
+PASS  [indexable] /case-studies/training-consulting-seo-growth/ — 200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/case-studies/training-consulting-seo-growth/
+PASS  [indexable] /case-studies/ai-image-editing-seo-growth/ — 200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/case-studies/ai-image-editing-seo-growth/
+PASS  [indexable] /free-seo-audit/ — 200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/free-seo-audit/
+PASS  [indexable] /about/ — 200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/about/
+PASS  [indexable] /contact/ — 200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/contact/
+PASS  [gated] /blog/ — 200 | robots: noindex, follow | canonical: https://topspotstudio.com/blog/
+PASS  [gated] /privacy-policy/ — 200 | robots: noindex, follow | canonical: https://topspotstudio.com/privacy-policy/
+PASS  [private] /admin/ — 200 | X-Robots-Tag: noindex, nofollow
+PASS  [private] /cms-api/users/ — 403 | X-Robots-Tag: noindex, nofollow
+PASS  [private] /cms-api/audit-logs/ — 403 | X-Robots-Tag: noindex, nofollow
+PASS  [private] /preview/?path=/ — 307 | X-Robots-Tag: noindex, nofollow | → /admin/login/?redirect=%2Fpreview%2F%3Fpath%3D%252F
+PASS  [private] /api/contact/ — 405 | X-Robots-Tag: none
+PASS  [private] /api/audit/ — 405 | X-Robots-Tag: none
+PASS  [404] Unknown URL returns 404 with noindex — robots tags: 2 (noindex + noindex, follow)
+FAIL  [404] Single robots meta tag on 404 — duplicate tags (fixed in the new build)
+PASS  [redirects] https://www.topspotstudio.com/ → https://topspotstudio.com/ — 1 hop(s): 308 https://topspotstudio.com/
+PASS  [redirects] https://www.topspotstudio.com/about/ → https://topspotstudio.com/about/ — 1 hop(s): 308 https://topspotstudio.com/about/
+PASS  [redirects] https://www.topspotstudio.com/about → https://topspotstudio.com/about/ — 2 hop(s): 308 https://www.topspotstudio.com/about/ ⇒ 308 https://topspotstudio.com/about/
+PASS  [redirects] https://www.topspotstudio.com/about/?x=1 → https://topspotstudio.com/about/?x=1 — 1 hop(s): 308 https://topspotstudio.com/about/?x=1
+PASS  [redirects] https://www.topspotstudio.com/robots.txt → https://topspotstudio.com/robots.txt — 1 hop(s): 308 https://topspotstudio.com/robots.txt
+PASS  [redirects] http://topspotstudio.com/ → https://topspotstudio.com/ — 1 hop(s): 308 https://topspotstudio.com/
+PASS  [redirects] http://topspotstudio.com/about/ → https://topspotstudio.com/about/ — 1 hop(s): 308 https://topspotstudio.com/about/
+PASS  [redirects] http://www.topspotstudio.com/ → https://topspotstudio.com/ — 2 hop(s): 308 https://www.topspotstudio.com/ ⇒ 308 https://topspotstudio.com/
+PASS  [redirects] http://www.topspotstudio.com/about/ → https://topspotstudio.com/about/ — 2 hop(s): 308 https://www.topspotstudio.com/about/ ⇒ 308 https://topspotstudio.com/about/
+PASS  [redirects] https://topspotstudio.com/about → https://topspotstudio.com/about/ — 1 hop(s): 308 https://topspotstudio.com/about/
+PASS  [redirects] https://topspotstudio.com/contact → https://topspotstudio.com/contact/ — 1 hop(s): 308 https://topspotstudio.com/contact/
+
+45 passed, 2 failed

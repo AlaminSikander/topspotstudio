@@ -2,7 +2,8 @@
 
 ## Migrations
 
-- Directory: `src/migrations/`. Current: `20261021_150424_initial_cms_schema` (creates all CMS tables; the website had no database before).
+- Directory: `src/migrations/`. `20261021_150424_initial_cms_schema` (creates all CMS tables; the website had no database before) and `20261025_195558_media_storage_fields` (additive: `media.prefix`, `media._objectkey` for Vercel Blob).
+- Production migrations need `ALLOW_PRODUCTION_DB=true` (see `database-separation.md`). Additive migrations go in **before** the code that needs them is deployed.
 - Create after a schema change: `npm run cms:migrate:create -- <name>`; review the SQL; commit.
 - Apply: `npm run cms:migrate`. Status: `npm run cms:migrate:status`.
 - `push` is disabled; never use `payload migrate:fresh` or `migrate:reset` on a shared database (they drop data).

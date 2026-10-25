@@ -1,0 +1,188 @@
+
+> top-spot-studio-website@1.0.0 qa:crawl
+> node scripts/check-site.mjs http://localhost:3100 https://topspotstudio.com
+
+PASS  / returns 200
+PASS  / has exactly one <h1>
+PASS  / title: "SEO &amp; Web Growth for Service Businesses | Top Spot Studio"
+PASS  / meta description (132 chars)
+PASS  / self-canonical
+INFO  / robots meta: index, follow; X-Robots-Tag: (none)
+PASS  / og:image resolves
+PASS  / lang=en-NZ
+PASS  / heading levels do not skip
+PASS  / all 4 <img> have alt
+PASS  / JSON-LD valid (2 blocks)
+PASS  /markets/new-zealand/seo/ returns 200
+PASS  /markets/new-zealand/seo/ has exactly one <h1>
+PASS  /markets/new-zealand/seo/ title: "SEO Services NZ for Service Businesses | Top Spot Studio"
+PASS  /markets/new-zealand/seo/ meta description (152 chars)
+PASS  /markets/new-zealand/seo/ self-canonical
+INFO  /markets/new-zealand/seo/ robots meta: index, follow; X-Robots-Tag: (none)
+PASS  /markets/new-zealand/seo/ og:image resolves
+PASS  /markets/new-zealand/seo/ lang=en-NZ
+PASS  /markets/new-zealand/seo/ heading levels do not skip
+PASS  /markets/new-zealand/seo/ all 0 <img> have alt
+PASS  /markets/new-zealand/seo/ JSON-LD valid (2 blocks)
+PASS  /markets/new-zealand/local-seo/ returns 200
+PASS  /markets/new-zealand/local-seo/ has exactly one <h1>
+PASS  /markets/new-zealand/local-seo/ title: "Local SEO NZ for Service Businesses | Top Spot Studio"
+PASS  /markets/new-zealand/local-seo/ meta description (136 chars)
+PASS  /markets/new-zealand/local-seo/ self-canonical
+INFO  /markets/new-zealand/local-seo/ robots meta: index, follow; X-Robots-Tag: (none)
+PASS  /markets/new-zealand/local-seo/ og:image resolves
+PASS  /markets/new-zealand/local-seo/ lang=en-NZ
+PASS  /markets/new-zealand/local-seo/ heading levels do not skip
+PASS  /markets/new-zealand/local-seo/ all 1 <img> have alt
+PASS  /markets/new-zealand/local-seo/ JSON-LD valid (2 blocks)
+PASS  /industries/seo-for-tradies/ returns 200
+PASS  /industries/seo-for-tradies/ has exactly one <h1>
+PASS  /industries/seo-for-tradies/ title: "SEO for Tradies That Drives Enquiries | Top Spot Studio"
+PASS  /industries/seo-for-tradies/ meta description (148 chars)
+PASS  /industries/seo-for-tradies/ self-canonical
+INFO  /industries/seo-for-tradies/ robots meta: index, follow; X-Robots-Tag: (none)
+PASS  /industries/seo-for-tradies/ og:image resolves
+PASS  /industries/seo-for-tradies/ lang=en-NZ
+PASS  /industries/seo-for-tradies/ heading levels do not skip
+PASS  /industries/seo-for-tradies/ all 6 <img> have alt
+PASS  /industries/seo-for-tradies/ JSON-LD valid (2 blocks)
+PASS  /industries/roofing-seo/ returns 200
+PASS  /industries/roofing-seo/ has exactly one <h1>
+PASS  /industries/roofing-seo/ title: "Roofing SEO Services | Top Spot Studio"
+PASS  /industries/roofing-seo/ meta description (143 chars)
+PASS  /industries/roofing-seo/ self-canonical
+INFO  /industries/roofing-seo/ robots meta: index, follow; X-Robots-Tag: (none)
+PASS  /industries/roofing-seo/ og:image resolves
+PASS  /industries/roofing-seo/ lang=en-NZ
+PASS  /industries/roofing-seo/ heading levels do not skip
+PASS  /industries/roofing-seo/ all 1 <img> have alt
+PASS  /industries/roofing-seo/ JSON-LD valid (2 blocks)
+PASS  /industries/web-design-for-tradies/ returns 200
+PASS  /industries/web-design-for-tradies/ has exactly one <h1>
+PASS  /industries/web-design-for-tradies/ title: "Web Design for Tradies | Top Spot Studio"
+PASS  /industries/web-design-for-tradies/ meta description (136 chars)
+PASS  /industries/web-design-for-tradies/ self-canonical
+INFO  /industries/web-design-for-tradies/ robots meta: index, follow; X-Robots-Tag: (none)
+PASS  /industries/web-design-for-tradies/ og:image resolves
+PASS  /industries/web-design-for-tradies/ lang=en-NZ
+PASS  /industries/web-design-for-tradies/ heading levels do not skip
+PASS  /industries/web-design-for-tradies/ all 0 <img> have alt
+PASS  /industries/web-design-for-tradies/ JSON-LD valid (2 blocks)
+PASS  /case-studies/ returns 200
+PASS  /case-studies/ has exactly one <h1>
+PASS  /case-studies/ title: "SEO Case Studies &amp; Results | Top Spot Studio"
+PASS  /case-studies/ meta description (149 chars)
+PASS  /case-studies/ self-canonical
+INFO  /case-studies/ robots meta: index, follow; X-Robots-Tag: (none)
+PASS  /case-studies/ og:image resolves
+PASS  /case-studies/ lang=en-NZ
+PASS  /case-studies/ heading levels do not skip
+PASS  /case-studies/ all 0 <img> have alt
+PASS  /case-studies/ JSON-LD valid (2 blocks)
+PASS  /case-studies/influencer-marketing-agency-seo-growth/ returns 200
+PASS  /case-studies/influencer-marketing-agency-seo-growth/ has exactly one <h1>
+PASS  /case-studies/influencer-marketing-agency-seo-growth/ title: "SEO Case Study: 99 Leads for an Influencer Marketing Agency | Top Spot Studio"
+PASS  /case-studies/influencer-marketing-agency-seo-growth/ meta description (148 chars)
+PASS  /case-studies/influencer-marketing-agency-seo-growth/ self-canonical
+INFO  /case-studies/influencer-marketing-agency-seo-growth/ robots meta: index, follow; X-Robots-Tag: (none)
+PASS  /case-studies/influencer-marketing-agency-seo-growth/ og:image resolves
+PASS  /case-studies/influencer-marketing-agency-seo-growth/ lang=en-NZ
+PASS  /case-studies/influencer-marketing-agency-seo-growth/ heading levels do not skip
+PASS  /case-studies/influencer-marketing-agency-seo-growth/ all 0 <img> have alt
+PASS  /case-studies/influencer-marketing-agency-seo-growth/ JSON-LD valid (2 blocks)
+PASS  /case-studies/training-consulting-seo-growth/ returns 200
+PASS  /case-studies/training-consulting-seo-growth/ has exactly one <h1>
+PASS  /case-studies/training-consulting-seo-growth/ title: "SEO Case Study: +182% Google Clicks for a Training &amp; Consulting Business | Top Spot Studio"
+PASS  /case-studies/training-consulting-seo-growth/ meta description (173 chars)
+PASS  /case-studies/training-consulting-seo-growth/ self-canonical
+INFO  /case-studies/training-consulting-seo-growth/ robots meta: index, follow; X-Robots-Tag: (none)
+PASS  /case-studies/training-consulting-seo-growth/ og:image resolves
+PASS  /case-studies/training-consulting-seo-growth/ lang=en-NZ
+PASS  /case-studies/training-consulting-seo-growth/ heading levels do not skip
+PASS  /case-studies/training-consulting-seo-growth/ all 0 <img> have alt
+PASS  /case-studies/training-consulting-seo-growth/ JSON-LD valid (2 blocks)
+PASS  /case-studies/ai-image-editing-seo-growth/ returns 200
+PASS  /case-studies/ai-image-editing-seo-growth/ has exactly one <h1>
+PASS  /case-studies/ai-image-editing-seo-growth/ title: "SEO Case Study: 29% Organic Traffic Growth in 4 Months | Top Spot Studio"
+PASS  /case-studies/ai-image-editing-seo-growth/ meta description (207 chars)
+PASS  /case-studies/ai-image-editing-seo-growth/ self-canonical
+INFO  /case-studies/ai-image-editing-seo-growth/ robots meta: index, follow; X-Robots-Tag: (none)
+PASS  /case-studies/ai-image-editing-seo-growth/ og:image resolves
+PASS  /case-studies/ai-image-editing-seo-growth/ lang=en-NZ
+PASS  /case-studies/ai-image-editing-seo-growth/ heading levels do not skip
+PASS  /case-studies/ai-image-editing-seo-growth/ all 0 <img> have alt
+PASS  /case-studies/ai-image-editing-seo-growth/ JSON-LD valid (2 blocks)
+PASS  /free-seo-audit/ returns 200
+PASS  /free-seo-audit/ has exactly one <h1>
+PASS  /free-seo-audit/ title: "Free SEO Audit for Service Businesses | Top Spot Studio"
+PASS  /free-seo-audit/ meta description (141 chars)
+PASS  /free-seo-audit/ self-canonical
+INFO  /free-seo-audit/ robots meta: index, follow; X-Robots-Tag: (none)
+PASS  /free-seo-audit/ og:image resolves
+PASS  /free-seo-audit/ lang=en-NZ
+PASS  /free-seo-audit/ heading levels do not skip
+PASS  /free-seo-audit/ all 0 <img> have alt
+PASS  /free-seo-audit/ JSON-LD valid (2 blocks)
+PASS  /about/ returns 200
+PASS  /about/ has exactly one <h1>
+PASS  /about/ title: "About Top Spot Studio | SEO &amp; Web Growth Team"
+PASS  /about/ meta description (140 chars)
+PASS  /about/ self-canonical
+INFO  /about/ robots meta: index, follow; X-Robots-Tag: (none)
+PASS  /about/ og:image resolves
+PASS  /about/ lang=en-NZ
+PASS  /about/ heading levels do not skip
+PASS  /about/ all 0 <img> have alt
+PASS  /about/ JSON-LD valid (2 blocks)
+PASS  /contact/ returns 200
+PASS  /contact/ has exactly one <h1>
+PASS  /contact/ title: "Contact Top Spot Studio | SEO &amp; Web Growth"
+PASS  /contact/ meta description (145 chars)
+PASS  /contact/ self-canonical
+INFO  /contact/ robots meta: index, follow; X-Robots-Tag: (none)
+PASS  /contact/ og:image resolves
+PASS  /contact/ lang=en-NZ
+PASS  /contact/ heading levels do not skip
+PASS  /contact/ all 0 <img> have alt
+PASS  /contact/ JSON-LD valid (2 blocks)
+PASS  /blog/ returns 200
+PASS  /blog/ has exactly one <h1>
+PASS  /blog/ title: "SEO &amp; Web Growth Blog | Top Spot Studio"
+PASS  /blog/ meta description (144 chars)
+PASS  /blog/ self-canonical
+INFO  /blog/ robots meta: noindex, follow; X-Robots-Tag: (none)
+PASS  /blog/ og:image resolves
+PASS  /blog/ lang=en-NZ
+PASS  /blog/ heading levels do not skip
+PASS  /blog/ all 0 <img> have alt
+PASS  /blog/ JSON-LD valid (2 blocks)
+PASS  /privacy-policy/ returns 200
+PASS  /privacy-policy/ has exactly one <h1>
+PASS  /privacy-policy/ title: "Privacy Policy | Top Spot Studio"
+PASS  /privacy-policy/ meta description (91 chars)
+PASS  /privacy-policy/ self-canonical
+INFO  /privacy-policy/ robots meta: noindex, follow; X-Robots-Tag: (none)
+PASS  /privacy-policy/ og:image resolves
+PASS  /privacy-policy/ lang=en-NZ
+PASS  /privacy-policy/ heading levels do not skip
+PASS  /privacy-policy/ all 0 <img> have alt
+PASS  /privacy-policy/ JSON-LD valid (2 blocks)
+PASS  all 15 unique internal links return 200 (no redirects)
+INFO  IL-019 blog footer link intentionally held until 3 articles are live
+PASS  link matrix: 96 links verified
+PASS  Web Design primary CTA present and links to /contact/
+PASS  robots.txt 200:
+      User-Agent: *
+      Allow: /
+      Allow: /cms-api/media/file/
+      Disallow: /api/
+      Disallow: /admin/
+      Disallow: /cms-api/
+      Disallow: /preview/
+      Disallow: /exit-preview/
+      
+      Sitemap: https://topspotstudio.com/sitemap.xml
+PASS  sitemap.xml 200 with 13 URLs
+PASS  unknown URL returns 404
+
+156 passed, 0 failed, 0 warnings

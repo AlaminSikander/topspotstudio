@@ -1,0 +1,122 @@
+PASS  [AUTH-01] Invalid password is rejected
+PASS  [AUTH-02] Unknown account is rejected
+PASS  [AUTH-03] Admin login succeeds
+PASS  [AUTH-04] Session cookie is HttpOnly + SameSite=Lax
+PASS  [AUTH-05] Editor login succeeds
+PASS  [AUTH-06] No public registration (first-register blocked once users exist)
+PASS  [AUTH-07] Anonymous cannot create users
+PASS  [AUTH-08] Password policy rejects short passwords
+PASS  [AUTH-09] Account locks after 5 failed attempts (correct password refused while locked)
+FAIL  [AUTH-10] Admin can unlock a locked account — 429
+PASS  [AUTH-11] Inactive accounts cannot sign in
+PASS  [AUTH-12] Logout ends the session
+PASS  [AUTH-13] Cookie auth ignored for untrusted Origin (CSRF)
+PASS  [AUTH-14] Password reset sends a reset email (mock SMTP)
+PASS  [PERM-01] Editor sees only their own user record
+PASS  [PERM-02] Editor cannot create users
+PASS  [PERM-03] Editor cannot promote themselves to admin
+PASS  [PERM-04] Editor cannot read tracking codes
+PASS  [PERM-05] Editor cannot read the audit log
+PASS  [PERM-06] Editor cannot change site settings
+PASS  [PERM-07] Editor cannot add tracking codes
+PASS  [PERM-08] Editor cannot delete pages
+PASS  [PERM-09] Built-in pages cannot be deleted, even by an admin
+PASS  [PERM-10] Built-in page URLs cannot be changed from the CMS
+PASS  [PERM-11] Editors cannot unpublish built-in pages (would 404 a live URL)
+PASS  [ANON-01] Anonymous GET /users/ is denied
+PASS  [ANON-02] Anonymous GET /redirects/ is denied
+PASS  [ANON-03] Anonymous GET /code-snippets/ is denied
+PASS  [ANON-04] Anonymous GET /audit-logs/ is denied
+PASS  [ANON-05] Anonymous GET /globals/site-settings/ is denied
+PASS  [ANON-06] Anonymous GET /pages/versions/ is denied
+PASS  [ANON-07] Anonymous cannot create pages
+PASS  [ANON-08] Anonymous post listing excludes drafts
+PASS  [ANON-09] GraphQL API is disabled
+PASS  [EDIT-01] Editor can create a draft page
+PASS  [DRAFT-01] Draft page is not public (404)
+PASS  [DRAFT-02] Draft page is not readable through the public API
+PASS  [DRAFT-03] Draft page is not in the sitemap
+PASS  [PUB-01] Editor with publish permission can publish
+PASS  [PUB-02] Published CMS page renders server-side (200)
+PASS  [SEO-01] CMS SEO title is in the initial HTML
+PASS  [SEO-02] Exactly one canonical, self-referencing on the preferred domain
+PASS  [SEO-03] Exactly one title and one meta description
+PASS  [SEO-04] FAQ section produces FAQPage JSON-LD
+PASS  [LINK-01] Internal link to a page renders as a crawlable <a href>
+PASS  [EDIT-02] Section order follows the CMS order
+PASS  [SITEMAP-01] Publishing adds the page to sitemap.xml
+PASS  [SEO-05] Generated OG image exists for a new page
+PASS  [DRAFT-04] Saving a draft of a published page does not change the live page
+PASS  [PREV-01] Preview without a session redirects to the CMS login
+PASS  [PREV-02] Preview with a session enables Draft Mode
+PASS  [PREV-03] Preview shows the unpublished draft
+PASS  [PREV-04] Preview pages are noindex
+PASS  [PREV-05] A copied draft-mode cookie without a CMS session shows only published content
+PASS  [PREV-06] Exit preview clears Draft Mode
+PASS  [EDIT-03] Reordered sections appear after publishing
+PASS  [LINK-02] External new-tab link gets target=_blank and rel=noopener noreferrer
+PASS  [LINK-03] Removing a link removes the anchor
+PASS  [REV-01] Restoring an earlier revision brings back its content
+PASS  [SEO-06] Robots noindex is output and the page leaves the sitemap
+PASS  [PERM-12] Editor without publish permission can save drafts but not publish
+PASS  [PUB-03] Unpublishing returns 404 and removes the page from the sitemap
+PASS  [SEO-07] SEO-only edit on a service page updates <title> and og:title in server HTML
+PASS  [SEO-08] Reverting the SEO title restores the original output
+PASS  [EDIT-04] Homepage hero edit appears on the live homepage
+PASS  [EDIT-05] Homepage restored to the original copy
+PASS  [NAV-01] Navigation label change appears in the site header
+PASS  [NAV-02] Navigation restored
+PASS  [BLOG-01] Editor can create a draft post
+PASS  [BLOG-02] Draft post is not public (404)
+PASS  [BLOG-03] Draft post can be previewed by a signed-in editor
+PASS  [BLOG-04] Published post renders and appears in the blog listing
+PASS  [BLOG-05] Post outputs BlogPosting + BreadcrumbList JSON-LD
+PASS  [BLOG-06] Post robots follow the blog flag (noindex while NEXT_PUBLIC_BLOG_ENABLED is false)
+PASS  [BLOG-07] Sitemap respects the blog launch rule (blog enabled AND ≥3 posts)
+PASS  [BLOG-08] Updating a published post changes the live article
+PASS  [BLOG-09] Changing a published slug creates a 308 redirect from the old URL
+PASS  [BLOG-10] Unpublishing removes the post (404) and its listing card
+PASS  [REDIR-01] Editor can create an internal redirect
+PASS  [REDIR-02] Permanent redirect returns 308 to the destination
+PASS  [REDIR-03] Temporary redirect returns 307; source path is normalised
+PASS  [REDIR-04] Redirecting a live page is blocked
+PASS  [REDIR-05] Redirect chains are blocked
+PASS  [REDIR-06] Protocol-relative (open redirect) destinations are blocked
+PASS  [REDIR-07] Editors cannot redirect to other websites
+PASS  [REDIR-08] Reserved paths (admin/API) cannot be redirected
+PASS  [REDIR-09] Destinations must be live pages
+PASS  [REDIR-10] javascript: destinations are blocked
+PASS  [REDIR-11] Admins can create an approved external https redirect
+PASS  [REDIR-12] Disabling a redirect makes the old URL 404 again
+PASS  [CODE-01] Admin can add verification and tracking codes
+PASS  [CODE-02] Search Console meta tag is inside <head>
+PASS  [CODE-03] GTM <noscript> is the first element after <body> (only Next's empty placeholder precedes it)
+PASS  [CODE-04] Footer script is after the site footer, before </body>
+PASS  [CODE-05] Consent-gated script is inert (type=text/plain + data-category)
+PASS  [CODE-06] Page-scoped code appears only on the selected page (in <head>)
+PASS  [CODE-07] Provider placement is enforced (GTM body snippet in <head> rejected)
+PASS  [CODE-08] Inline event handlers are rejected
+PASS  [CODE-09] Non-https script sources are rejected
+PASS  [CODE-10] Inline scripts cannot be page-scoped
+PASS  [CODE-11] Malformed verification tags are rejected
+PASS  [CODE-12] Tracking codes are not added to preview pages
+PASS  [CODE-13] Disabling a code removes it from the site
+PASS  [MEDIA-01] Editor can upload a valid image with alt text
+PASS  [MEDIA-02] Media usage endpoint reports where an image is used
+PASS  [MEDIA-03] Uploaded image is publicly served
+PASS  [MEDIA-04] Upload without alt text is rejected
+PASS  [MEDIA-05] SVG uploads are rejected
+PASS  [MEDIA-06] Non-image content disguised as .png is rejected
+PASS  [MEDIA-07] Anonymous users cannot upload
+PASS  [AUDIT-01] Publish, unpublish, redirect, code and login events are audited
+PASS  [AUDIT-02] Audit entries cannot be deleted, even by an admin
+PASS  [SEC-01] Admin pages send X-Robots-Tag noindex and no-store
+PASS  [SEC-02] CMS API responses send X-Robots-Tag noindex
+PASS  [SEC-03] robots.txt disallows /admin/ and /cms-api/ in production
+PASS  [SEC-04] Admin collection views redirect to login and expose no content
+PASS  [SEC-05] No server secrets in client bundles (.next/static)
+PASS  [SEC-06] No secrets or database URLs in public HTML
+FAIL  [AUTH-15] Login endpoint is rate-limited per IP (429 after 10 attempts) — 429,429,429,429,429,429,429,429,429,429,429,429
+PASS  [CLEANUP] All QA test records were removed
+
+118 passed, 2 failed → handover/06-production-readiness/raw/cms-qa.json

@@ -1,0 +1,17 @@
+PASS  /privacy-policy/  (title, description, canonical, robots, 1 headings)
+PASS  /blog/  (title, description, canonical, robots, 2 headings)
+PASS  /contact/  (title, description, canonical, robots, 3 headings)
+PASS  /about/  (title, description, canonical, robots, 2 headings)
+PASS  /free-seo-audit/  (title, description, canonical, robots, 4 headings)
+PASS  /case-studies/  (title, description, canonical, robots, 2 headings)
+PASS  /case-studies/ai-image-editing-seo-growth/  (title, description, canonical, robots, 1 headings)
+PASS  /case-studies/training-consulting-seo-growth/  (title, description, canonical, robots, 1 headings)
+PASS  /case-studies/influencer-marketing-agency-seo-growth/  (title, description, canonical, robots, 1 headings)
+PASS  /industries/web-design-for-tradies/  (title, description, canonical, robots, 3 headings)
+PASS  /industries/roofing-seo/  (title, description, canonical, robots, 5 headings)
+PASS  /industries/seo-for-tradies/  (title, description, canonical, robots, 5 headings)
+PASS  /markets/new-zealand/local-seo/  (title, description, canonical, robots, 5 headings)
+PASS  /markets/new-zealand/seo/  (title, description, canonical, robots, 5 headings)
+PASS  /  (title, description, canonical, robots, 5 headings)
+
+15/15 published pages match the server-rendered HTML

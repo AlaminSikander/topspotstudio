@@ -1,5 +1,7 @@
 # Database and storage
 
+> Since 22 Oct the CMS runs on Neon Postgres (branches `production`, `development`, `qa`). See `../04-release/database-separation.md`; the local databases below were used during the build phase.
+
 ## Databases (local, isolated)
 
 | Database | Purpose |
@@ -42,7 +44,12 @@ Restoring the dev dump into `tss_cms_test` produced identical row counts (pages 
 
 | Environment | Storage | Status |
 | --- | --- | --- |
-| Local | `./media` (git-ignored), served at `/cms-api/media/file/<name>` | working |
-| Preview/Production | Vercel Blob via `@payloadcms/storage-vercel-blob` when `BLOB_READ_WRITE_TOKEN` is set | **pending owner approval** (cost) |
+| Local without token | `./media` (git-ignored), served at `/cms-api/media/file/<name>` | working |
+| Local / QA | Vercel Blob store `topspotstudio-media-qa` (Vercel Development environment only) | tested 26 Oct: upload, retrieval, persistence across a clean rebuild, delete |
+| Production | Vercel Blob store `topspotstudio-media` (Production only) via `@payloadcms/storage-vercel-blob` | see `06-production-readiness/PRODUCTION-READINESS-REPORT.md` |
 
-Vercel’s server filesystem is ephemeral, so **do not upload media on a deployed environment until Blob (or S3/R2) is configured.** The existing design photos are static build assets and are not affected.
+The plugin runs with `alwaysInsertFields: true`, so the `media.prefix` and `media._objectkey` columns exist in every environment (migration `20261025_195558_media_storage_fields`). Without that migration, uploads fail with `column "_objectkey" does not exist` as soon as a Blob token is set.
+
+Vercel’s server filesystem is ephemeral, so **do not upload media on a deployed environment without a Blob token.** The existing design photos are static build assets and are not affected.
+
+Database separation (development, QA and production branches, and the production-database guard) is described in `../04-release/database-separation.md`.

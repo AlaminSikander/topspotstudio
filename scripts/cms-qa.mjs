@@ -5,6 +5,7 @@ import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from "
 import { join } from "node:path";
 
 const base = (process.argv[2] || "http://localhost:3100").replace(/\/$/, "");
+if (/(^|\.)topspotstudio\.com$/i.test(new URL(base).hostname)) throw new Error(`Refusing to run the CMS suite against production (${base}): it creates and edits content.`);
 const out = process.argv[3] || ".tmp/cms-qa.json";
 const API = `${base}/cms-api`;
 const { CMS_ADMIN_EMAIL, CMS_ADMIN_PASSWORD, CMS_EDITOR_EMAIL, CMS_EDITOR_PASSWORD } = process.env;
@@ -145,7 +146,7 @@ try {
   record("AUTH-13", "auth", "Cookie auth ignored for untrusted Origin (CSRF)", r.status === 403, r.status);
 
   // Password reset email goes to the mock SMTP only.
-  const mockLog = ".tmp/mock-smtp-cms.log";
+  const mockLog = process.env.MOCK_LOG || ".tmp/mock-smtp-cms.log";
   const before = existsSync(mockLog) ? readFileSync(mockLog, "utf8").length : 0;
   r = await anon.api("POST", "/users/forgot-password/", { json: { email: CMS_ADMIN_EMAIL } });
   await sleep(1200);

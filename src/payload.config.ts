@@ -6,6 +6,7 @@ import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import { attachDatabasePool } from "@vercel/functions";
 import { buildConfig } from "payload";
 import sharp from "sharp";
+import { assertDatabaseAllowed } from "./lib/db-guard";
 import { AuditLogs } from "./cms/collections/AuditLogs";
 import { CodeSnippets } from "./cms/collections/CodeSnippets";
 import { MAX_UPLOAD_BYTES, Media } from "./cms/collections/Media";
@@ -36,8 +37,11 @@ const trustedOrigins = [process.env.CMS_SERVER_URL, process.env.NEXT_PUBLIC_SITE
  */
 const cliCommand = process.argv.slice(2).find((arg) => !arg.startsWith("-"))?.toLowerCase() ?? "";
 const databaseUrl = (cliCommand.startsWith("migrate") && process.env.DATABASE_URL_UNPOOLED) || process.env.DATABASE_URL || "";
+assertDatabaseAllowed(databaseUrl);
 
 const smtpConfigured = Boolean(process.env.SMTP_HOST);
+/** Payload adds its own display name, so a "Name <address>" value is reduced to the bare address. */
+const cmsFromAddress = (process.env.CMS_EMAIL_FROM || process.env.SMTP_USER || "cms@localhost").replace(/^.*<([^>]+)>.*$/, "$1").trim();
 
 export default buildConfig({
   secret: secret || "build-time-placeholder-not-used-for-auth",
@@ -85,7 +89,7 @@ export default buildConfig({
   sharp,
   email: smtpConfigured
     ? nodemailerAdapter({
-        defaultFromAddress: process.env.CMS_EMAIL_FROM || process.env.SMTP_USER || "cms@localhost",
+        defaultFromAddress: cmsFromAddress,
         defaultFromName: "Top Spot Studio CMS",
         transportOptions: {
           host: process.env.SMTP_HOST,
@@ -98,6 +102,8 @@ export default buildConfig({
   plugins: [
     vercelBlobStorage({
       enabled: Boolean(process.env.BLOB_READ_WRITE_TOKEN),
+      // Same media columns (prefix, _objectKey) with or without a token, so one migration fits every environment.
+      alwaysInsertFields: true,
       collections: { media: true },
       token: process.env.BLOB_READ_WRITE_TOKEN || "",
     }),

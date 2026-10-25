@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/seo";
-import { IS_PRODUCTION, SITE_URL } from "@/lib/site";
+import { IS_PRODUCTION } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
   if (!IS_PRODUCTION) {
@@ -16,6 +16,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: absoluteUrl("/sitemap.xml"),
-    host: SITE_URL,
   };
 }

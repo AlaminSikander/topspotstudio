@@ -1,0 +1,98 @@
+
+> top-spot-studio-website@1.0.0 build
+> next build
+
+▲ Next.js 16.4.2 (Turbopack)
+- Environments: .env.local
+✓ Running next.config.ts took 44ms
+- Experiments (use with caution):
+  ⨯ turbopackServerFastRefresh
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 4.8s
+  Running TypeScript ...
+  Finished TypeScript in 4.3s ...
+  Collecting page data using 9 workers ...
+(node:98370) Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+
+To prepare for this change:
+- If you want the current behavior, explicitly use 'sslmode=verify-full'
+- If you want libpq compatibility now, use 'uselibpqcompat=true&sslmode=require'
+
+See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:98377) Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+
+To prepare for this change:
+- If you want the current behavior, explicitly use 'sslmode=verify-full'
+- If you want libpq compatibility now, use 'uselibpqcompat=true&sslmode=require'
+
+See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  Generating static pages using 9 workers (0/39) ...
+(node:98374) Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+
+To prepare for this change:
+- If you want the current behavior, explicitly use 'sslmode=verify-full'
+- If you want libpq compatibility now, use 'uselibpqcompat=true&sslmode=require'
+
+See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:98375) Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+
+To prepare for this change:
+- If you want the current behavior, explicitly use 'sslmode=verify-full'
+- If you want libpq compatibility now, use 'uselibpqcompat=true&sslmode=require'
+
+See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  Generating static pages using 9 workers (9/39) 
+  Generating static pages using 9 workers (19/39) 
+  Generating static pages using 9 workers (29/39) 
+✓ Generating static pages using 9 workers (39/39) in 21.6s
+  Finalizing page optimization ...
+
+Route (app)                                               Revalidate  Expire
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /[...slug]
+├ ○ /about
+├ ƒ /admin/[[...segments]]
+├ ƒ /api/audit
+├ ƒ /api/contact
+├ ○ /apple-icon.png
+├ ○ /blog
+├ ● /blog/[slug]
+├ ○ /case-studies
+├ ○ /case-studies/ai-image-editing-seo-growth
+├ ○ /case-studies/influencer-marketing-agency-seo-growth
+├ ○ /case-studies/training-consulting-seo-growth
+├ ƒ /cms-api/[...slug]
+├ ○ /contact
+├ ƒ /exit-preview
+├ ○ /free-seo-audit
+├ ○ /icon.png
+├ ○ /industries/roofing-seo
+├ ○ /industries/seo-for-tradies
+├ ○ /industries/web-design-for-tradies
+├ ○ /markets/new-zealand/local-seo
+├ ○ /markets/new-zealand/seo
+├   /og/[...slug]
+│ ├ ● /og/privacy-policy.png
+│ ├ ● /og/blog.png
+│ ├ ● /og/contact.png
+│ └ ● [+12 more paths]
+├ ƒ /preview
+├ ○ /privacy-policy
+├ ○ /robots.txt
+└ ○ /sitemap.xml                                                  1h      1y
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

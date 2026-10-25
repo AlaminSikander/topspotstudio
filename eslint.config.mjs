@@ -17,6 +17,8 @@ const eslintConfig = defineConfig([
     "src/app/(payload)/admin/importMap.js",
     "src/migrations/**",
     "media/**",
+    "handover/**",
+    "coverage/**",
   ]),
 ]);
 
