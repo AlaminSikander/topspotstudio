@@ -1,0 +1,8 @@
+PASS  [MEDIA-06] Media record still exists after rebuild/restart — 200 qa-test-media-mvoccexc.webp
+PASS  [MEDIA-07] original still served after rebuild/restart, byte-identical — 200 6590 B (was 6590 B)
+PASS  [MEDIA-07] thumbnail still served after rebuild/restart, byte-identical — 200 8753 B (was 8753 B)
+PASS  [MEDIA-07] card still served after rebuild/restart, byte-identical — 200 24046 B (was 24046 B)
+PASS  [MEDIA-07] hero still served after rebuild/restart, byte-identical — 200 26623 B (was 26623 B)
+PASS  [MEDIA-08] Local ./media folder has no copy (so persistence comes from Blob)
+
+all passed

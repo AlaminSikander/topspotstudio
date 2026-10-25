@@ -1,9 +1,10 @@
 // Read-only SEO and redirect audit of a deployed site (GET requests only).
-// Usage: node scripts/live-seo-check.mjs [origin] [out.json]
+// Usage: [PRIVACY_APPROVED=true] [BLOG_ENABLED=true] node scripts/live-seo-check.mjs [origin] [out.json]
 import { writeFileSync } from "node:fs";
 
 const origin = (process.argv[2] || "https://topspotstudio.com").replace(/\/$/, "");
 const out = process.argv[3];
+const gatedPaths = [...(process.env.BLOG_ENABLED === "true" ? [] : ["/blog/"]), ...(process.env.PRIVACY_APPROVED === "true" ? [] : ["/privacy-policy/"])];
 const host = new URL(origin).host;
 const bust = () => `_cb=${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
 const results = [];
@@ -55,7 +56,8 @@ const sm = await get(`${origin}/sitemap.xml?${bust()}`);
 const urls = [...sm.body.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 record("sitemap", "sitemap.xml 200 with URLs", sm.status === 200 && urls.length > 0, `${sm.status}, ${urls.length} URLs`);
 record("sitemap", "All sitemap URLs are canonical-origin https with trailing slash", urls.every((u) => u.startsWith(`${origin}/`) && u.endsWith("/")));
-record("sitemap", "Blog and privacy policy excluded while gated", !urls.some((u) => /\/blog\/|\/privacy-policy\//.test(u)));
+record("sitemap", `Gated pages excluded (${gatedPaths.join(", ") || "none"})`, !urls.some((u) => gatedPaths.some((p) => u.endsWith(p))));
+if (process.env.PRIVACY_APPROVED === "true") record("sitemap", "Approved privacy policy included", urls.includes(`${origin}/privacy-policy/`));
 
 // Indexable public pages
 const pages = [];
@@ -71,7 +73,7 @@ for (const u of urls) {
 }
 
 // Intentionally gated (noindex) pages
-for (const p of ["/blog/", "/privacy-policy/"]) {
+for (const p of gatedPaths) {
   const r = await get(`${origin}${p}?${bust()}`);
   const h = head(r.body);
   record("gated", p, r.status === 200 && h.metaRobots.some((m) => m.startsWith("noindex")), `${r.status} | robots: ${h.metaRobots.join(" + ")} | canonical: ${h.canonicals.join(", ")}`);

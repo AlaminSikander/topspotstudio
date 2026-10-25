@@ -1,0 +1,9 @@
+PASS  [MEDIA-09] Admin can delete the test image — 200
+FAIL  [MEDIA-10] Deleted image is no longer served — 200
+PASS  [MEDIA-11] Blob files removed with the record — 0 left
+
+1 failed
+delete temp admin (self): 400 {"errors":[{"message":"An unknown error occurred."}]}
+To prepare for this change:
+deleted temp admin id=3; remaining matches: 0
+deleted orphan preference id=9

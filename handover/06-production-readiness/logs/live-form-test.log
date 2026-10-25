@@ -1,0 +1,6 @@
+PASS  Contact form: API accepted and SMTP delivered — HTTP 200 {"ok":true}
+PASS  Contact form: success message shown
+PASS  Audit form: API accepted and SMTP delivered — HTTP 200 {"ok":true}
+PASS  Audit form: success message shown
+
+Test ID: PT-202610252127 (search the inbox for this ID)

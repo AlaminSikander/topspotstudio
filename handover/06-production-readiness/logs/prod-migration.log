@@ -1,0 +1,8 @@
+restore point (UTC): 2026-10-25T21:17:48Z
+To prepare for this change:
+[03:17:56] INFO: Reading migration files from /Users/alamin/Documents/TSS web/src/migrations
+[03:17:59] INFO: Migrating: 20261025_195558_media_storage_fields
+[03:17:59] INFO: Migrated:  20261025_195558_media_storage_fields (603ms)
+[03:18:00] INFO: Done.
+production media columns: _objectkey,prefix
+migrations: 20261021_150424_initial_cms_schema, 20261025_195558_media_storage_fields

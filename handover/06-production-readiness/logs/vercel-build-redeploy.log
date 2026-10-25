@@ -1,0 +1,118 @@
+npm warn exec The following package was not found and will be installed: vercel@65.2.0
+Vercel CLI 65.2.0
+2026-10-25T21:30:20.957Z  Running build in Washington, D.C., USA (East) – iad1
+2026-10-25T21:30:20.958Z  Build machine configuration: 2 cores, 8 GB
+2026-10-25T21:30:20.984Z  Cloning github.com/AlaminSikander/topspotstudio (Branch: main, Commit: 671a9b3)
+2026-10-25T21:30:20.985Z  Skipping build cache, deployment was triggered without cache.
+2026-10-25T21:30:22.788Z  Cloning completed: 1.804s
+2026-10-25T21:30:23.161Z  Running "vercel build"
+2026-10-25T21:30:23.170Z  Vercel CLI 65.1.0
+2026-10-25T21:30:23.441Z  Warning: Detected "engines": { "node": ">=20.18.1" } in your `package.json` that will automatically upgrade when a new major Node.js Version is released. Learn More: https://vercel.link/node-version
+2026-10-25T21:30:23.466Z  Installing dependencies...
+2026-10-25T21:30:23.972Z  npm warn Unknown env config "cache-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+2026-10-25T21:30:28.860Z  npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.hirok.io
+2026-10-25T21:30:28.943Z  npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.hirok.io
+2026-10-25T21:30:32.939Z  npm warn deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+2026-10-25T21:30:40.593Z  
+2026-10-25T21:30:40.594Z  added 837 packages in 17s
+2026-10-25T21:30:40.594Z  
+2026-10-25T21:30:40.594Z  307 packages are looking for funding
+2026-10-25T21:30:40.594Z  run `npm fund` for details
+2026-10-25T21:30:40.594Z  npm warn install-scripts 6 packages have install scripts not yet covered by allowScripts:
+2026-10-25T21:30:40.595Z  npm warn install-scripts   esbuild@0.18.20 (postinstall: node install.js)
+2026-10-25T21:30:40.595Z  npm warn install-scripts   esbuild@0.25.12 (postinstall: node install.js)
+2026-10-25T21:30:40.595Z  npm warn install-scripts   esbuild@0.28.2 (postinstall: node install.js)
+2026-10-25T21:30:40.595Z  npm warn install-scripts   unrs-resolver@1.12.2 (postinstall: node postinstall.js)
+2026-10-25T21:30:40.595Z  npm warn install-scripts   esbuild@0.28.2 (postinstall: node install.js)
+2026-10-25T21:30:40.595Z  npm warn install-scripts   esbuild@0.28.2 (postinstall: node install.js)
+2026-10-25T21:30:40.595Z  npm warn install-scripts
+2026-10-25T21:30:40.595Z  npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+2026-10-25T21:30:40.639Z  Detected Next.js version: 16.4.2
+2026-10-25T21:30:40.650Z  Running "npm run build"
+2026-10-25T21:30:40.780Z  npm warn Unknown env config "cache-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+2026-10-25T21:30:40.795Z  
+2026-10-25T21:30:40.795Z  > top-spot-studio-website@1.0.0 build
+2026-10-25T21:30:40.795Z  > next build
+2026-10-25T21:30:40.795Z  
+2026-10-25T21:30:41.173Z  ▲ Next.js 16.4.2 (Turbopack)
+2026-10-25T21:30:41.442Z  Applying modifyConfig from Vercel
+2026-10-25T21:30:41.442Z  ✓ Running next.config.ts took 264ms
+2026-10-25T21:30:41.558Z  Attention: Next.js now collects completely anonymous telemetry regarding usage.
+2026-10-25T21:30:41.558Z  This information is used to shape Next.js' roadmap and prioritize features.
+2026-10-25T21:30:41.559Z  You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2026-10-25T21:30:41.559Z  https://nextjs.org/telemetry
+2026-10-25T21:30:41.559Z  
+2026-10-25T21:30:41.683Z  - Experiments (use with caution):
+2026-10-25T21:30:41.684Z  ⨯ turbopackServerFastRefresh
+2026-10-25T21:30:41.684Z  
+2026-10-25T21:30:41.721Z  Creating an optimized production build ...
+2026-10-25T21:31:14.094Z  ✓ Compiled successfully in 32.3s
+2026-10-25T21:31:14.127Z  Running TypeScript ...
+2026-10-25T21:31:24.154Z  Finished TypeScript in 10.0s ...
+2026-10-25T21:31:24.156Z  Collecting page data using 1 worker ...
+2026-10-25T21:31:25.213Z  (node:201) Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+2026-10-25T21:31:25.214Z  In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+2026-10-25T21:31:25.214Z  
+2026-10-25T21:31:25.214Z  To prepare for this change:
+2026-10-25T21:31:25.214Z  - If you want the current behavior, explicitly use 'sslmode=verify-full'
+2026-10-25T21:31:25.214Z  - If you want libpq compatibility now, use 'uselibpqcompat=true&sslmode=require'
+2026-10-25T21:31:25.214Z  
+2026-10-25T21:31:25.214Z  See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.
+2026-10-25T21:31:25.214Z  (Use `node --trace-warnings ...` to show where the warning was created)
+2026-10-25T21:31:25.729Z  Generating static pages using 1 worker (0/39) ...
+2026-10-25T21:31:27.141Z  Generating static pages using 1 worker (9/39)
+2026-10-25T21:31:27.251Z  Generating static pages using 1 worker (19/39)
+2026-10-25T21:31:27.719Z  Generating static pages using 1 worker (29/39)
+2026-10-25T21:31:28.000Z  ✓ Generating static pages using 1 worker (39/39) in 2.3s
+2026-10-25T21:31:28.006Z  Finalizing page optimization ...
+2026-10-25T21:31:28.116Z  Running onBuildComplete from Vercel
+2026-10-25T21:31:28.163Z  Warning: Detected "engines": { "node": ">=20.18.1" } in your `package.json` that will automatically upgrade when a new major Node.js Version is released. Learn More: https://vercel.link/node-version
+2026-10-25T21:31:28.475Z  
+2026-10-25T21:31:28.477Z  Route (app)                                               Revalidate  Expire
+2026-10-25T21:31:28.478Z  ┌ ○ /
+2026-10-25T21:31:28.478Z  ├ ○ /_not-found
+2026-10-25T21:31:28.478Z  ├ ƒ /[...slug]
+2026-10-25T21:31:28.478Z  ├ ○ /about
+2026-10-25T21:31:28.478Z  ├ ƒ /admin/[[...segments]]
+2026-10-25T21:31:28.478Z  ├ ƒ /api/audit
+2026-10-25T21:31:28.478Z  ├ ƒ /api/contact
+2026-10-25T21:31:28.478Z  ├ ○ /apple-icon.png
+2026-10-25T21:31:28.478Z  ├ ○ /blog
+2026-10-25T21:31:28.478Z  ├ ● /blog/[slug]
+2026-10-25T21:31:28.478Z  ├ ○ /case-studies
+2026-10-25T21:31:28.478Z  ├ ○ /case-studies/ai-image-editing-seo-growth
+2026-10-25T21:31:28.478Z  ├ ○ /case-studies/influencer-marketing-agency-seo-growth
+2026-10-25T21:31:28.478Z  ├ ○ /case-studies/training-consulting-seo-growth
+2026-10-25T21:31:28.478Z  ├ ƒ /cms-api/[...slug]
+2026-10-25T21:31:28.478Z  ├ ○ /contact
+2026-10-25T21:31:28.478Z  ├ ƒ /exit-preview
+2026-10-25T21:31:28.478Z  ├ ○ /free-seo-audit
+2026-10-25T21:31:28.478Z  ├ ○ /icon.png
+2026-10-25T21:31:28.478Z  ├ ○ /industries/roofing-seo
+2026-10-25T21:31:28.478Z  ├ ○ /industries/seo-for-tradies
+2026-10-25T21:31:28.478Z  ├ ○ /industries/web-design-for-tradies
+2026-10-25T21:31:28.478Z  ├ ○ /markets/new-zealand/local-seo
+2026-10-25T21:31:28.478Z  ├ ○ /markets/new-zealand/seo
+2026-10-25T21:31:28.478Z  ├   /og/[...slug]
+2026-10-25T21:31:28.478Z  │ ├ ● /og/privacy-policy.png
+2026-10-25T21:31:28.478Z  │ ├ ● /og/blog.png
+2026-10-25T21:31:28.478Z  │ ├ ● /og/contact.png
+2026-10-25T21:31:28.478Z  │ └ ● [+12 more paths]
+2026-10-25T21:31:28.478Z  ├ ƒ /preview
+2026-10-25T21:31:28.478Z  ├ ○ /privacy-policy
+2026-10-25T21:31:28.478Z  ├ ○ /robots.txt
+2026-10-25T21:31:28.478Z  └ ○ /sitemap.xml                                                  1h      1y
+2026-10-25T21:31:28.478Z  
+2026-10-25T21:31:28.478Z  
+2026-10-25T21:31:28.478Z  ○  (Static)   prerendered as static content
+2026-10-25T21:31:28.478Z  ●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+2026-10-25T21:31:28.478Z  ƒ  (Dynamic)  server-rendered on demand
+2026-10-25T21:31:28.478Z  
+2026-10-25T21:31:28.720Z  Build Completed in /vercel/output [1m]
+2026-10-25T21:31:28.735Z  Deploying outputs...
+2026-10-25T21:31:35.946Z  Deployment completed
+2026-10-25T21:31:35.950Z  Creating build cache...
+2026-10-25T21:31:51.258Z  Created build cache: 15s
+2026-10-25T21:31:51.258Z  Uploading build cache [437.03 MB]
+2026-10-25T21:31:57.213Z  Build cache uploaded: 5.955s
+status	● Ready

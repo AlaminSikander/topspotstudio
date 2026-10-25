@@ -1,0 +1,464 @@
+{
+  "origin": "https://topspotstudio.com",
+  "checkedAt": "2026-10-25T21:26:57.587Z",
+  "results": [
+    {
+      "area": "robots",
+      "name": "robots.txt 200",
+      "status": "PASS",
+      "detail": "200"
+    },
+    {
+      "area": "robots",
+      "name": "Allows crawling of the site",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "robots",
+      "name": "Disallows /api/",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "robots",
+      "name": "Disallows /admin/",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "robots",
+      "name": "Disallows /cms-api/",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "robots",
+      "name": "Disallows /preview/",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "robots",
+      "name": "Disallows /exit-preview/",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "robots",
+      "name": "Absolute sitemap URL",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "robots",
+      "name": "No non-standard Host line",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "robots",
+      "name": "No X-Robots-Tag on robots.txt",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "sitemap",
+      "name": "sitemap.xml 200 with URLs",
+      "status": "PASS",
+      "detail": "200, 14 URLs"
+    },
+    {
+      "area": "sitemap",
+      "name": "All sitemap URLs are canonical-origin https with trailing slash",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "sitemap",
+      "name": "Gated pages excluded (/blog/)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "sitemap",
+      "name": "Approved privacy policy included",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "indexable",
+      "name": "/",
+      "status": "PASS",
+      "detail": "200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/"
+    },
+    {
+      "area": "indexable",
+      "name": "/markets/new-zealand/seo/",
+      "status": "PASS",
+      "detail": "200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/markets/new-zealand/seo/"
+    },
+    {
+      "area": "indexable",
+      "name": "/markets/new-zealand/local-seo/",
+      "status": "PASS",
+      "detail": "200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/markets/new-zealand/local-seo/"
+    },
+    {
+      "area": "indexable",
+      "name": "/industries/seo-for-tradies/",
+      "status": "PASS",
+      "detail": "200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/industries/seo-for-tradies/"
+    },
+    {
+      "area": "indexable",
+      "name": "/industries/roofing-seo/",
+      "status": "PASS",
+      "detail": "200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/industries/roofing-seo/"
+    },
+    {
+      "area": "indexable",
+      "name": "/industries/web-design-for-tradies/",
+      "status": "PASS",
+      "detail": "200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/industries/web-design-for-tradies/"
+    },
+    {
+      "area": "indexable",
+      "name": "/case-studies/",
+      "status": "PASS",
+      "detail": "200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/case-studies/"
+    },
+    {
+      "area": "indexable",
+      "name": "/case-studies/influencer-marketing-agency-seo-growth/",
+      "status": "PASS",
+      "detail": "200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/case-studies/influencer-marketing-agency-seo-growth/"
+    },
+    {
+      "area": "indexable",
+      "name": "/case-studies/training-consulting-seo-growth/",
+      "status": "PASS",
+      "detail": "200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/case-studies/training-consulting-seo-growth/"
+    },
+    {
+      "area": "indexable",
+      "name": "/case-studies/ai-image-editing-seo-growth/",
+      "status": "PASS",
+      "detail": "200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/case-studies/ai-image-editing-seo-growth/"
+    },
+    {
+      "area": "indexable",
+      "name": "/free-seo-audit/",
+      "status": "PASS",
+      "detail": "200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/free-seo-audit/"
+    },
+    {
+      "area": "indexable",
+      "name": "/about/",
+      "status": "PASS",
+      "detail": "200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/about/"
+    },
+    {
+      "area": "indexable",
+      "name": "/contact/",
+      "status": "PASS",
+      "detail": "200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/contact/"
+    },
+    {
+      "area": "indexable",
+      "name": "/privacy-policy/",
+      "status": "PASS",
+      "detail": "200 | X-Robots-Tag: none | robots: index, follow | canonical: https://topspotstudio.com/privacy-policy/"
+    },
+    {
+      "area": "gated",
+      "name": "/blog/",
+      "status": "PASS",
+      "detail": "200 | robots: noindex, follow | canonical: https://topspotstudio.com/blog/"
+    },
+    {
+      "area": "private",
+      "name": "/admin/",
+      "status": "PASS",
+      "detail": "200 | X-Robots-Tag: noindex, nofollow"
+    },
+    {
+      "area": "private",
+      "name": "/cms-api/users/",
+      "status": "PASS",
+      "detail": "403 | X-Robots-Tag: noindex, nofollow"
+    },
+    {
+      "area": "private",
+      "name": "/cms-api/audit-logs/",
+      "status": "PASS",
+      "detail": "403 | X-Robots-Tag: noindex, nofollow"
+    },
+    {
+      "area": "private",
+      "name": "/preview/?path=/",
+      "status": "PASS",
+      "detail": "307 | X-Robots-Tag: noindex, nofollow | → /admin/login/?redirect=%2Fpreview%2F%3Fpath%3D%252F"
+    },
+    {
+      "area": "private",
+      "name": "/api/contact/",
+      "status": "PASS",
+      "detail": "405 | X-Robots-Tag: none"
+    },
+    {
+      "area": "private",
+      "name": "/api/audit/",
+      "status": "PASS",
+      "detail": "405 | X-Robots-Tag: none"
+    },
+    {
+      "area": "404",
+      "name": "Unknown URL returns 404 with noindex",
+      "status": "PASS",
+      "detail": "robots tags: 1 (noindex)"
+    },
+    {
+      "area": "404",
+      "name": "Single robots meta tag on 404",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "redirects",
+      "name": "https://www.topspotstudio.com/ → https://topspotstudio.com/",
+      "status": "PASS",
+      "detail": "1 hop(s): 308 https://topspotstudio.com/"
+    },
+    {
+      "area": "redirects",
+      "name": "https://www.topspotstudio.com/about/ → https://topspotstudio.com/about/",
+      "status": "PASS",
+      "detail": "1 hop(s): 308 https://topspotstudio.com/about/"
+    },
+    {
+      "area": "redirects",
+      "name": "https://www.topspotstudio.com/about → https://topspotstudio.com/about/",
+      "status": "PASS",
+      "detail": "2 hop(s): 308 https://topspotstudio.com/about ⇒ 308 https://topspotstudio.com/about/"
+    },
+    {
+      "area": "redirects",
+      "name": "https://www.topspotstudio.com/about/?x=1 → https://topspotstudio.com/about/?x=1",
+      "status": "PASS",
+      "detail": "1 hop(s): 308 https://topspotstudio.com/about/?x=1"
+    },
+    {
+      "area": "redirects",
+      "name": "https://www.topspotstudio.com/robots.txt → https://topspotstudio.com/robots.txt",
+      "status": "PASS",
+      "detail": "1 hop(s): 308 https://topspotstudio.com/robots.txt"
+    },
+    {
+      "area": "redirects",
+      "name": "http://topspotstudio.com/ → https://topspotstudio.com/",
+      "status": "PASS",
+      "detail": "1 hop(s): 308 https://topspotstudio.com/"
+    },
+    {
+      "area": "redirects",
+      "name": "http://topspotstudio.com/about/ → https://topspotstudio.com/about/",
+      "status": "PASS",
+      "detail": "1 hop(s): 308 https://topspotstudio.com/about/"
+    },
+    {
+      "area": "redirects",
+      "name": "http://www.topspotstudio.com/ → https://topspotstudio.com/",
+      "status": "PASS",
+      "detail": "2 hop(s): 308 https://www.topspotstudio.com/ ⇒ 308 https://topspotstudio.com/"
+    },
+    {
+      "area": "redirects",
+      "name": "http://www.topspotstudio.com/about/ → https://topspotstudio.com/about/",
+      "status": "PASS",
+      "detail": "2 hop(s): 308 https://www.topspotstudio.com/about/ ⇒ 308 https://topspotstudio.com/about/"
+    },
+    {
+      "area": "redirects",
+      "name": "https://topspotstudio.com/about → https://topspotstudio.com/about/",
+      "status": "PASS",
+      "detail": "1 hop(s): 308 https://topspotstudio.com/about/"
+    },
+    {
+      "area": "redirects",
+      "name": "https://topspotstudio.com/contact → https://topspotstudio.com/contact/",
+      "status": "PASS",
+      "detail": "1 hop(s): 308 https://topspotstudio.com/contact/"
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://topspotstudio.com/",
+      "status": 200,
+      "xRobotsTag": null,
+      "metaRobots": [
+        "index, follow"
+      ],
+      "canonical": [
+        "https://topspotstudio.com/"
+      ],
+      "title": "SEO &amp; Web Growth for Service Businesses | Top Spot Studio"
+    },
+    {
+      "url": "https://topspotstudio.com/markets/new-zealand/seo/",
+      "status": 200,
+      "xRobotsTag": null,
+      "metaRobots": [
+        "index, follow"
+      ],
+      "canonical": [
+        "https://topspotstudio.com/markets/new-zealand/seo/"
+      ],
+      "title": "SEO Services NZ for Service Businesses | Top Spot Studio"
+    },
+    {
+      "url": "https://topspotstudio.com/markets/new-zealand/local-seo/",
+      "status": 200,
+      "xRobotsTag": null,
+      "metaRobots": [
+        "index, follow"
+      ],
+      "canonical": [
+        "https://topspotstudio.com/markets/new-zealand/local-seo/"
+      ],
+      "title": "Local SEO NZ for Service Businesses | Top Spot Studio"
+    },
+    {
+      "url": "https://topspotstudio.com/industries/seo-for-tradies/",
+      "status": 200,
+      "xRobotsTag": null,
+      "metaRobots": [
+        "index, follow"
+      ],
+      "canonical": [
+        "https://topspotstudio.com/industries/seo-for-tradies/"
+      ],
+      "title": "SEO for Tradies That Drives Enquiries | Top Spot Studio"
+    },
+    {
+      "url": "https://topspotstudio.com/industries/roofing-seo/",
+      "status": 200,
+      "xRobotsTag": null,
+      "metaRobots": [
+        "index, follow"
+      ],
+      "canonical": [
+        "https://topspotstudio.com/industries/roofing-seo/"
+      ],
+      "title": "Roofing SEO Services | Top Spot Studio"
+    },
+    {
+      "url": "https://topspotstudio.com/industries/web-design-for-tradies/",
+      "status": 200,
+      "xRobotsTag": null,
+      "metaRobots": [
+        "index, follow"
+      ],
+      "canonical": [
+        "https://topspotstudio.com/industries/web-design-for-tradies/"
+      ],
+      "title": "Web Design for Tradies | Top Spot Studio"
+    },
+    {
+      "url": "https://topspotstudio.com/case-studies/",
+      "status": 200,
+      "xRobotsTag": null,
+      "metaRobots": [
+        "index, follow"
+      ],
+      "canonical": [
+        "https://topspotstudio.com/case-studies/"
+      ],
+      "title": "SEO Case Studies &amp; Results | Top Spot Studio"
+    },
+    {
+      "url": "https://topspotstudio.com/case-studies/influencer-marketing-agency-seo-growth/",
+      "status": 200,
+      "xRobotsTag": null,
+      "metaRobots": [
+        "index, follow"
+      ],
+      "canonical": [
+        "https://topspotstudio.com/case-studies/influencer-marketing-agency-seo-growth/"
+      ],
+      "title": "SEO Case Study: 99 Leads for an Influencer Marketing Agency | Top Spot Studio"
+    },
+    {
+      "url": "https://topspotstudio.com/case-studies/training-consulting-seo-growth/",
+      "status": 200,
+      "xRobotsTag": null,
+      "metaRobots": [
+        "index, follow"
+      ],
+      "canonical": [
+        "https://topspotstudio.com/case-studies/training-consulting-seo-growth/"
+      ],
+      "title": "SEO Case Study: +182% Google Clicks for a Training &amp; Consulting Business | Top Spot Studio"
+    },
+    {
+      "url": "https://topspotstudio.com/case-studies/ai-image-editing-seo-growth/",
+      "status": 200,
+      "xRobotsTag": null,
+      "metaRobots": [
+        "index, follow"
+      ],
+      "canonical": [
+        "https://topspotstudio.com/case-studies/ai-image-editing-seo-growth/"
+      ],
+      "title": "SEO Case Study: 29% Organic Traffic Growth in 4 Months | Top Spot Studio"
+    },
+    {
+      "url": "https://topspotstudio.com/free-seo-audit/",
+      "status": 200,
+      "xRobotsTag": null,
+      "metaRobots": [
+        "index, follow"
+      ],
+      "canonical": [
+        "https://topspotstudio.com/free-seo-audit/"
+      ],
+      "title": "Free SEO Audit for Service Businesses | Top Spot Studio"
+    },
+    {
+      "url": "https://topspotstudio.com/about/",
+      "status": 200,
+      "xRobotsTag": null,
+      "metaRobots": [
+        "index, follow"
+      ],
+      "canonical": [
+        "https://topspotstudio.com/about/"
+      ],
+      "title": "About Top Spot Studio | SEO &amp; Web Growth Team"
+    },
+    {
+      "url": "https://topspotstudio.com/contact/",
+      "status": 200,
+      "xRobotsTag": null,
+      "metaRobots": [
+        "index, follow"
+      ],
+      "canonical": [
+        "https://topspotstudio.com/contact/"
+      ],
+      "title": "Contact Top Spot Studio | SEO &amp; Web Growth"
+    },
+    {
+      "url": "https://topspotstudio.com/privacy-policy/",
+      "status": 200,
+      "xRobotsTag": null,
+      "metaRobots": [
+        "index, follow"
+      ],
+      "canonical": [
+        "https://topspotstudio.com/privacy-policy/"
+      ],
+      "title": "Privacy Policy | Top Spot Studio"
+    }
+  ]
+}

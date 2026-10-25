@@ -1,12 +1,15 @@
 // Media storage QA: upload → retrieve → (rebuild/redeploy) → verify → cleanup. Never run against production.
 // Usage: CMS_ADMIN_EMAIL=… CMS_ADMIN_PASSWORD=… BLOB_READ_WRITE_TOKEN=… node scripts/media-storage-qa.mjs <upload|verify|cleanup> [baseUrl] [state.json]
+// Without BLOB_READ_WRITE_TOKEN the Blob-listing checks are skipped and storage is judged from the served URLs.
 import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { list } from "@vercel/blob";
 import sharp from "sharp";
 
 const [phase = "upload", baseArg = "http://localhost:3100", statePath = ".tmp/media-storage-qa.json"] = process.argv.slice(2);
 const base = baseArg.replace(/\/$/, "");
-if (/(^|\.)topspotstudio\.com$/i.test(new URL(base).hostname)) throw new Error("Refusing to run media QA against production.");
+if (/(^|\.)topspotstudio\.com$/i.test(new URL(base).hostname) && process.env.ALLOW_PRODUCTION_MEDIA_QA !== "true") {
+  throw new Error("Refusing to run media QA against production (set ALLOW_PRODUCTION_MEDIA_QA=true only with owner approval).");
+}
 const { CMS_ADMIN_EMAIL, CMS_ADMIN_PASSWORD, BLOB_READ_WRITE_TOKEN } = process.env;
 if (!CMS_ADMIN_EMAIL || !CMS_ADMIN_PASSWORD) throw new Error("Set CMS_ADMIN_EMAIL and CMS_ADMIN_PASSWORD");
 

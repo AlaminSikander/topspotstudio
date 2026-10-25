@@ -1,0 +1,10 @@
+PASS  [MEDIA-01] Admin can upload an image — 201 id=1 file=qa-test-media-mvoccexc.webp
+PASS  [MEDIA-02] Retrieve original through the site — 200 image/webp 6590 B /cms-api/media/file/qa-test-media-mvoccexc.webp
+PASS  [MEDIA-02] Retrieve thumbnail through the site — 200 image/png 8753 B /cms-api/media/file/qa-test-media-mvoccexc-400x210.png
+PASS  [MEDIA-02] Retrieve card through the site — 200 image/png 24046 B /cms-api/media/file/qa-test-media-mvoccexc-800x420.png
+PASS  [MEDIA-02] Retrieve hero through the site — 200 image/png 26623 B /cms-api/media/file/qa-test-media-mvoccexc-1200x630.png
+PASS  [MEDIA-03] Original and resized files are stored in Vercel Blob — qa-test-media-mvoccexc-1200x630.png (26623 B), qa-test-media-mvoccexc-400x210.png (8753 B), qa-test-media-mvoccexc-800x420.png (24046 B), qa-test-media-mvoccexc.webp (6590 B)
+PASS  [MEDIA-04] Nothing written to the local ./media folder
+PASS  [MEDIA-05] File is reachable directly from Blob (independent of any deployment) — 200 xifb2amgrw33howj.public.blob.vercel-storage.com
+
+all passed
